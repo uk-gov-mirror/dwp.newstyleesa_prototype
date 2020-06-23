@@ -29,3 +29,27 @@
 
 </div>
 {% endblock %}
+
+{% block pageScripts %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#hide-accept").click(function () {
+          $("#global-cookie-message").hide();
+        });
+        $("#hide-reject").click(function () {
+          $("#global-cookie-message").hide();
+        });
+        $("#show-accept").click(function () {
+          $("#cookie-confirm").show();
+          $("#cookie-message").hide();
+        });
+        $("#show-reject").click(function () {
+          $("#cookie-reject").show();
+          $("#cookie-message").hide();
+        });
+      });
+    </script>
+
+{% endblock %}
