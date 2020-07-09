@@ -1,20 +1,11 @@
-{% extends "layout_master.html" %}
+{% extends "layout.html" %}
 
-{% block pageTitle %}
-  Prototypes &ndash; {{ serviceName }}
+
+{% block beforeContent %}
+  <a href="../../index.html" rel="prev" class="govuk-back-link">Index page</a>
 {% endblock %}
 
 {% block content %}
-
-<div style="margin-bottom: 30px;">
-  <a href="../../index.html" rel="prev" class="govuk-back-link">Index page</a>
-</div>
-
-{# <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Prototypes</h1>
-  </div>
-</div> #}
 
 <div class="govuk-grid-row">
 
@@ -34,7 +25,7 @@
     <p class="govuk-body">Changes:</p>
 
     <ul class="govuk-list govuk-list--bullet">
-        <li><a href="x">TBC</a></li>
+        <li>Removed 'Are you getting Statutory Sick Pay?' from main service</li>
         </ul>
 
     <h2 class="govuk-heading-l">Version 12</h2>

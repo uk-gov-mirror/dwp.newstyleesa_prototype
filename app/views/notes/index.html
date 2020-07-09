@@ -1,4 +1,8 @@
-{% extends "layout_master.html" %}
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+<a href="dev-index" rel="prev" class="govuk-back-link">MVP documentation and reference screens for JIRA&nbsp;stories</a>
+{% endblock %}
 
 {% block pageTitle %}
   Notes on why screens are there / future plans &ndash; {{ serviceName }}
@@ -768,9 +772,8 @@ To explore whether users know that the process of applying is not yet completed 
 
 {% block content %}
 
-<div style="margin-bottom: 30px;">
-  <a href="dev-index" rel="prev" class="govuk-back-link">MVP documentation and reference screens for JIRA&nbsp;stories</a>
-</div>
+
+
 
 <main class="govuk-main-wrapper">
 
