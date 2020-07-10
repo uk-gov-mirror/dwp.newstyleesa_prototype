@@ -1,20 +1,11 @@
-{% extends "layout_master.html" %}
+{% extends "layout.html" %}
 
-{% block pageTitle %}
-  Prototypes &ndash; {{ serviceName }}
+
+{% block beforeContent %}
+  <a href="../../index.html" rel="prev" class="govuk-back-link">Index page</a>
 {% endblock %}
 
 {% block content %}
-
-<div style="margin-bottom: 30px;">
-  <a href="../../index.html" rel="prev" class="govuk-back-link">Index page</a>
-</div>
-
-{# <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Prototypes</h1>
-  </div>
-</div> #}
 
 <div class="govuk-grid-row">
 
@@ -34,8 +25,12 @@
     <p class="govuk-body">Changes:</p>
 
     <ul class="govuk-list govuk-list--bullet">
-        <li><a href="apply/v13/processing-timescales/done">Application sent page</a> contains processing timescales for all claimants – dynamically generate a data 14 calendar days after application submitted (agreed by SPD on 7/7/20, see ticket 864)</li>
-        </ul>
+      <li>Removed 'Are you getting Statutory Sick Pay?' from main service</li>
+      <li><a href="apply/v13/processing-timescales/done">Application sent page</a> contains processing timescales for all claimants – dynamically generate a data 14 calendar days after application submitted (agreed by SPD on 7/7/20, see ticket 864)</li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
 
     <h2 class="govuk-heading-l">Version 12</h2>
 

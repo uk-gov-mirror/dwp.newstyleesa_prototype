@@ -38,24 +38,7 @@
             <div id="conditions-{{ i }}"></div>
           </div>
 
-          {% from "date-input/macro.njk" import govukDateInput %}
-
-{#           {{ govukDateInput({
-            id: "dob",
-            namePrefix: "dob",
-            fieldset: {
-              legend: {
-                text: "When it first started",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            hint: {
-              html: "For example, 31 3 1980"
-            },
-            id: "conditions-" + i + "-started",
-            name: "conditions-" + i + "-started"
-          }) }} #}
+          
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="conditions-0-started-hint" role="group">
