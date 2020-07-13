@@ -47,6 +47,7 @@
           </div>
 
           <div class="govuk-form-group hidden autocomplete bold-label">
+            <label for="conditions-{{ i }}-name" class="govuk-label">Your first condition</label>
             <div id="conditions-{{ i }}"></div>
             {{ govukInput({
               label: {
@@ -118,8 +119,6 @@ Array.prototype.slice.call(document.querySelectorAll('.hidden')).forEach(functio
 Array.prototype.slice.call(document.querySelectorAll('.fallback, .js-hidden, .additional')).forEach(function(e) {
   e.classList.add('hidden');
 })
-
-{% include '../../includes/conditions-canonical-list.js' %}
 
 window.onload = function() {
   for (var i = 0; i < 12; i++) {
