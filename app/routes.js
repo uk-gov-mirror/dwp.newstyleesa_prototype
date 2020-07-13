@@ -1,5 +1,9 @@
 const express = require('express')
 const router = express.Router()
+
+const radioButtonRedirect = require('radio-button-redirect')
+router.use(radioButtonRedirect)
+
 const moment = require('moment');
 
 // Add your routes here - above the module.exports line
