@@ -39,7 +39,7 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              Sarah Philips
+              {{ data['first-name'] }} {{ data['last-name'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -53,7 +53,7 @@
               Date of birth
             </dt>
             <dd class="govuk-summary-list__value">
-              5 January 1978
+            {{data['dob-day']}} {{data['dob-month'] | toMonth }} {{data['dob-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -66,7 +66,7 @@
               National Insurance number
             </dt>
             <dd class="govuk-summary-list__value">
-              QQ 12 34 56 C
+              {{ data['national-insurance-number'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -80,9 +80,10 @@
               Home address
             </dt>
             <dd class="govuk-summary-list__value">
-              72 Guild Street<br>
-              London<br>
-              SE23 6FH
+              {{ data['address-line-1'] }} <br>
+              {{ data['address-line-2'] }} <br>
+              {{ data['address-town'] }} <br>
+              {{ data['address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -90,14 +91,18 @@
               </a>
             </dd>
           </div>
+
+          {% if (data['send-letters'] == "no") %}
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Alternative contact address
             </dt>
             <dd class="govuk-summary-list__value">
-              34 Guild Street<br>
-              London<br>
-              SE23 6FH
+              {{ data['alt-address-line-1'] }} <br>
+              {{ data['alt-address-line-2'] }} <br>
+              {{ data['alt-address-town'] }} <br>
+              {{ data['alt-address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -105,12 +110,16 @@
               </a>
             </dd>
           </div>
+          {% endif %}
+
+          {% if (data['how-contacted'] == "yes") %}
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Mobile phone number
             </dt>
             <dd class="govuk-summary-list__value">
-              07700 900457
+              {{ data['contact-by-phone'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -118,6 +127,24 @@
               </a>
             </dd>
           </div>
+        {% endif %}
+
+        {% if (data['other-phone'] == "yes") %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['landline'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
 
         </dl>
 
