@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layoutWithCookies.html" %}
 
 {% block beforeContent %}
 <div class="govuk-phase-banner">
@@ -28,21 +28,26 @@
       <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Do you have any other health conditions, illnesses, disabilities or injuries?</h1>
+            Is coronavirus (COVID-19) the main reason for your claim?</h1>
         </legend>
 
-        
+        <p class="govuk-body">Select yes if one of the following applies to you or your child, now or some time in the past:</p>
+        <ul class="govuk-list govuk-list--bullet">
+        <li>you're at high risk because you have an underlying health condition (shielding)</li>
+        <li>you're self-isolating because you have symptoms of coronavirus</li>
+        <li>you're self-isolating because you came into contact with someone who has symptoms of coronavirus. Or you were told to self-isolate by a test and trace service</li>
+      </ul>
 
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="disability-1" name="disability" type="radio" value='yes~/apply/v13/condition' data-aria-controls="yes-cond">
-            <label class="govuk-label govuk-radios__label" for="disability-1">
+            <input class="govuk-radios__input" id="coronavirus-1" name="coronavirus" type="radio" value="yes~/apply/v13/state-pension" data-aria-controls="yes-cond">
+            <label class="govuk-label govuk-radios__label" for="coronavirus-1">
               Yes
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="disability-2" name="disability" type="radio" value='no~/apply/v13/gpsurgery'>
-            <label class="govuk-label govuk-radios__label" for="disability-2">
+            <input class="govuk-radios__input" id="coronavirus-2" name="coronavirus" type="radio" value="no~/apply/v13/disability-or-health-condition">
+            <label class="govuk-label govuk-radios__label" for="coronavirus-2">
               No
             </label>
           </div>
@@ -57,5 +62,4 @@
   </div><!-- govuk-grid-column-two-thirds -->
 </div><!-- govuk-grid-row -->
 {% endblock %}
-
 
