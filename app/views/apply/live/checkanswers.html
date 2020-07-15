@@ -42,7 +42,7 @@
               {{ data['first-name'] }} {{ data['last-name'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="name">
                 Change<span class="govuk-visually-hidden"> first name</span>
               </a>
             </dd>
@@ -56,7 +56,7 @@
             {{data['dob-day']}} {{data['dob-month'] | toMonth }} {{data['dob-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="dateofbirth">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
               </a>
             </dd>
@@ -69,7 +69,7 @@
               {{ data['national-insurance-number'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="nino">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
               </a>
             </dd>
@@ -86,7 +86,7 @@
               {{ data['address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="address">
                 Change<span class="govuk-visually-hidden"> home address</span>
               </a>
             </dd>
@@ -105,7 +105,7 @@
               {{ data['alt-address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="address">
                 Change<span class="govuk-visually-hidden"> contact address</span>
               </a>
             </dd>
@@ -122,7 +122,7 @@
               {{ data['contact-by-phone'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="telephone">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
@@ -139,7 +139,7 @@
               {{ data['landline'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="landline">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
@@ -158,40 +158,46 @@
               Claiming because of coronavirus
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{ data['coronavirus-reason'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="coronavirus-reason-for-claim">
                 Change<span class="govuk-visually-hidden"> conditions</span>
               </a>
             </dd>
           </div>
+
+          {% if (data['coronavirus-reason'] == "yes") %}
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date first affected by coronavirus
             </dt>
             <dd class="govuk-summary-list__value">
-              3 March 2020
+              {{data['coronavirus-day']}} {{data['coronavirus-month'] | toMonth }} {{data['coronavirus-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="coronavirus-date">
                 Change<span class="govuk-visually-hidden"> conditions</span>
               </a>
             </dd>
           </div>
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Other health conditions
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{ data['other-condition'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="do-you-have-health-condition">
                 Change<span class="govuk-visually-hidden"> conditions</span>
               </a>
             </dd>
           </div>
+          {% if (data['other-condition'] == "yes") %}
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Conditions
@@ -204,38 +210,65 @@
               Started 20 November 2018
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="condition">
                 Change<span class="govuk-visually-hidden"> conditions</span>
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% endif %}
+
+          {% if (data['coronavirus-reason'] == "no") %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Conditions
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Abdominal pain<br>
+              Started 1 June 2013<br>
+              <br>
+              Broken leg<br>
+              Started 20 November 2018
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="condition">
+                Change<span class="govuk-visually-hidden"> conditions</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Doctor's details
             </dt>
             <dd class="govuk-summary-list__value">
-              Dr Sarah Philips<br>
-              72 Guild street<br>
-              London<br>
-              SF23 6FH<br>
-              020 7946 0809<br>
+              {{ data['surgery'] }}<br>
+              {{ data['gp-phone'] }}<br>
+              {{ data['gp'] }}<br>
+              {{ data['gp-address-line-1'] }} <br>
+              {{ data['gp-address-line-2'] }} <br>
+              {{ data['gp-address-town'] }} <br>
+              {{ data['gp-address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="gpsurgery">
                 Change<span class="govuk-visually-hidden"> licence period</span>
               </a>
             </dd>
           </div>
+          {% if (data['terminal-illness'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Life expectancy
             </dt>
             <dd class="govuk-summary-list__value">
-              Could be less than 6 months<br>
-              More than 6 months<br>
+              Could be less than 6 months
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="severe-condition">
                 Change<span class="govuk-visually-hidden"> life expectancy</span>
               </a>
             </dd>
@@ -245,53 +278,75 @@
               DS1500 form sent
             </dt>
             <dd class="govuk-summary-list__value">
-              No
+              {{ data['ds1500'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="ds1500-report">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% if (data['terminal-illness'] == "no") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Life expectancy
+            </dt>
+            <dd class="govuk-summary-list__value">
+              More than 6 months
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="severe-condition">
+                Change<span class="govuk-visually-hidden"> life expectancy</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Currently in hospital
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{ data['hospital'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="hospital">
                 Change
               </a>
             </dd>
           </div>
+          {% if (data['hospital'] == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Hospital details
             </dt>
             <dd class="govuk-summary-list__value">
-              Ear, nose and throat ward<br>
-              Hallamshire Hospital<br>
+              {{ data['hospital-name'] }}<br>
+              {{ data['hospital-ward'] }}<br>
               <br>
-              Admitted on 19 December 2018<br>
+              Admitted on {{data['hospital-day']}} {{data['hospital-month'] | toMonth }} {{data['hospital-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="hospital">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Pregnant
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes<br>
-              Baby due on 14 May 2019<br>
+              {{ data['pregnancy'] }}<br>
+              {% if (data['pregnancy'] == "Yes") %}
+              Baby due on {{data['due-day']}} {{data['due-month'] | toMonth }} {{data['due-year']}}<br>
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="pregnant">
                 Change<span class="govuk-visually-hidden"> licence period</span>
               </a>
             </dd>
@@ -301,10 +356,10 @@
               Doctor can share details with DWP
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{ data['consent'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="consent">
                 Change
               </a>
             </dd>
