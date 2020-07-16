@@ -51,6 +51,19 @@ module.exports = function (env) {
     }
   }
 
+  filters.sayHi = function(name,tone) {
+    return (tone == 'formal' ? 'Greetings' : 'Hi') + ' ' + name + '!'
+  }
+
+  filters.split = function(str, separator) {
+    if (str)
+    {
+      return str.split(separator).filter(function(el){return el;});
+    } else {
+      return '';
+    }
+    
+  }
 
 return filters
 }
