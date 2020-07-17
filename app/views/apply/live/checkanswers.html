@@ -568,6 +568,7 @@
               </a>
             </dd>
           </div>
+          {% if (data['offSick'] == "no") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Hours you work each week
@@ -634,6 +635,7 @@
               </a>
             </dd>
           </div>
+          {% endif %}
           {% endif %}
         </dl>
 
@@ -733,60 +735,66 @@
         </h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        {% if (data['work'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Getting Statutory Sick Pay
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
-              No
+              {{data['statutory-pay']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="statutory-pay">
                 Change
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Statutory Sick Pay in the last 12 weeks
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Yes
-
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Statutory Sick Pay ended
-            </dt>
-            <dd class="govuk-summary-list__value">
-              18 December 2018
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-              </a>
-            </dd>
-          </div>
+          {% endif %}
+          {% if (data['statutory-pay'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Statutory Sick Pay ends
             </dt>
             <dd class="govuk-summary-list__value">
-              18 January 2019
+              {{data['ssp-day']}} {{data['ssp-month'] | toMonth }} {{data['ssp-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="statutory-pay-end">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% if (data['statutory-pay'] == "no") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Statutory Sick Pay in the last 12 weeks
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['statutory-pay-recent']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="statutory-pay-recent">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+          {% if (data['statutory-pay-recent'] == "yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Statutory Sick Pay ended
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['ssp-recent-day']}} {{data['ssp-recent-month'] | toMonth }} {{data['ssp-recent-year']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="statutory-pay-recent-end">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Other statutory payments
@@ -795,24 +803,41 @@
               Statutory Maternity Pay
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="statutory-pay-other">
                 Change
               </a>
             </dd>
           </div>
+          {% if (data['fit-work'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Return to work date
             </dt>
             <dd class="govuk-summary-list__value">
-              18 March 2019
+              {{data['fit-day']}} {{data['fit-month'] | toMonth }} {{data['fit-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="fit-for-work">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% if (data['fit-work'] == "no") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Return to work date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No, I do not know
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="fit-for-work">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
         </dl>
 
         <h2 class="govuk-heading-m">Claim date</h2>
@@ -823,27 +848,26 @@
               Claim start date
             </dt>
             <dd class="govuk-summary-list__value">
-              18 January 2019
+              {{data['claim-day']}} {{data['claim-month'] | toMonth }} {{data['claim-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="claimdate">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
           </div>
         </dl>
         <h2 class="govuk-heading-m">Working and living abroad</h2>
-
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Worked abroad in the last 5 years
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{data['work-overseas']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="work-overseas">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
@@ -853,10 +877,10 @@
               Lived abroad with family member in the armed forces in the last 12 weeks
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{data['military-overseas']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="military-overseas">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
@@ -868,20 +892,35 @@
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
-
+            {% if (data['pension'] == "notsure") %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Getting money from a pension or annuity
               </dt>
               <dd class="govuk-summary-list__value">
-                Yes
+                I'm not sure
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a href="#">
+                <a href="pension">
                   Change
                 </a>
               </dd>
             </div>
+            {% else %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Getting money from a pension or annuity
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['pension']}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="pension">
+                  Change
+                </a>
+              </dd>
+            </div>
+            {% endif %}
         </dl>
 
 
@@ -890,20 +929,35 @@
           Permanent health insurance
         </h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
+          {% if (data['insurance'] == "notsure") %}
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Permanent health insurance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              I'm not sure
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="insurance">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% else %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Permanent health insurance
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{data['insurance']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="insurance">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
         </dl>
 
         <h2 class="govuk-heading-m">
@@ -915,10 +969,10 @@
               DWP can share decision with your doctor
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{data['consent-outcome']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="consent-outcome">
                 Change
               </a>
             </dd>
