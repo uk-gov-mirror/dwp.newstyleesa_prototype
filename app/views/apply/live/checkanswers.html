@@ -151,24 +151,63 @@
         <h2 class="govuk-heading-m">
           Your health conditions
         </h2>
-
+         
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        {% if (data['reason'] ) %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Claiming because of coronavirus
+              Reason for claiming because of coronavirus
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['coronavirus-reason'] }}
+              {% if (data['reason'] == "reason-1") %}
+              I'm at high risk because I have an underlying health condition (shielding)
+              {% endif %}
+              {% if (data['reason'] == "reason-2") %}
+              I'm self-isolating because I have symptoms of coronavirus
+              {% endif %}
+              {% if (data['reason'] == "reason-3") %}
+              I'm self-isolating because I came into contact with someone who has symptoms of coronavirus. Or I was told to self-isolate by a test and trace service
+              {% endif %}
+              {% if (data['reason'] == "reason-4") %}
+              Other reason
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="coronavirus-reason-for-claim">
+              <a href="coronavirus-reason">
                 Change<span class="govuk-visually-hidden"> conditions</span>
               </a>
             </dd>
           </div>
-
-          {% if (data['coronavirus-reason'] == "yes") %}
-
+          {% if (data['reason'] == "reason-4") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How affected by coronavirus if other
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['coronavirus-other']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="coronavirus-date">
+                Change<span class="govuk-visually-hidden"> conditions</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+          {% if (data['reason'] == "reason-1") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Received letter or text from NHS if shielding
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['told-to-shield']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="coronavirus-date">
+                Change<span class="govuk-visually-hidden"> conditions</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date first affected by coronavirus
@@ -182,7 +221,7 @@
               </a>
             </dd>
           </div>
-          
+          {% if (data['reason'] == "reason-2") or (data['reason'] == "reason-3") or (data['reason'] == "reason-4") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Other health conditions
@@ -196,8 +235,8 @@
               </a>
             </dd>
           </div>
-          {% if (data['other-condition'] == "yes") %}
-
+          {% endif %}
+          {% if (data['other-condition'] == "yes") or (data['reason'] == "reason-1") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Conditions
@@ -216,9 +255,7 @@
             </dd>
           </div>
           {% endif %}
-          {% endif %}
-
-          {% if (data['coronavirus-reason'] == "no") %}
+          {% else %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">

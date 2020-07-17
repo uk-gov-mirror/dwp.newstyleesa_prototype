@@ -22,31 +22,26 @@
           Content needed
     </span> -->
 
-    <form id="form" method="post" action="insurance-detail">
+    <form id="form" method="post" action="coronavirus-date-shielding">
 
    <div class="govuk-form-group">
       <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Is coronavirus (COVID-19) the main reason for your claim?</h1>
+            Are you shielding because you got a letter or text message?</h1>
         </legend>
 
-        <p class="govuk-body">Select yes if one of the following applies:</p>
-        <ul class="govuk-list govuk-list--bullet">
-        <li>you or your child might have coronavirus or you’re recovering from it</li>
-        <li>you or your child are self-isolating because you came into contact with someone who might have coronavirus</li>
-        <li>you've been told to stay at home for at least 12 weeks by the NHS because you’re at high risk of severe illness</li>
-      </ul>
+        <p>You'll have received these from the NHS, telling you to stay at home for at least 12 weeks because you’re at high risk of severe illness.</p>
 
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="disability-1" name="disability" type="radio" value='yes~/apply/live/state-pension' data-aria-controls="yes-cond">
+            <input class="govuk-radios__input" id="disability-1" name="told-to-shield" type="radio" value="yes" data-aria-controls="yes-cond">
             <label class="govuk-label govuk-radios__label" for="disability-1">
               Yes
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="disability-2" name="disability" type="radio" value='no~/apply/live/disability-or-health-condition'>
+            <input class="govuk-radios__input" id="disability-2" name="told-to-shield" type="radio" value="no">
             <label class="govuk-label govuk-radios__label" for="disability-2">
               No
             </label>
@@ -62,4 +57,5 @@
   </div><!-- govuk-grid-column-two-thirds -->
 </div><!-- govuk-grid-row -->
 {% endblock %}
+
 
