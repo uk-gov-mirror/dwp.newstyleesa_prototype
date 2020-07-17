@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layoutWithCookies.html" %}
 
 {% block beforeContent %}
 <div class="govuk-phase-banner">
@@ -39,10 +39,10 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              Sarah Philips
+              {{ data['first-name'] }} {{ data['last-name'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="name">
                 Change<span class="govuk-visually-hidden"> first name</span>
               </a>
             </dd>
@@ -53,10 +53,10 @@
               Date of birth
             </dt>
             <dd class="govuk-summary-list__value">
-              5 January 1978
+            {{data['dob-day']}} {{data['dob-month'] | toMonth }} {{data['dob-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="dateofbirth">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
               </a>
             </dd>
@@ -66,10 +66,10 @@
               National Insurance number
             </dt>
             <dd class="govuk-summary-list__value">
-              QQ 12 34 56 C
+              {{ data['national-insurance-number'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="nino">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
               </a>
             </dd>
@@ -80,91 +80,163 @@
               Home address
             </dt>
             <dd class="govuk-summary-list__value">
-              72 Guild Street<br>
-              London<br>
-              SE23 6FH
+              {{ data['address-line-1'] }} <br>
+              {{ data['address-line-2'] }} <br>
+              {{ data['address-town'] }} <br>
+              {{ data['address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="address">
                 Change<span class="govuk-visually-hidden"> home address</span>
               </a>
             </dd>
           </div>
+
+          {% if (data['send-letters'] == "no") %}
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Alternative contact address
             </dt>
             <dd class="govuk-summary-list__value">
-              34 Guild Street<br>
-              London<br>
-              SE23 6FH
+              {{ data['alt-address-line-1'] }} <br>
+              {{ data['alt-address-line-2'] }} <br>
+              {{ data['alt-address-town'] }} <br>
+              {{ data['alt-address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="address">
                 Change<span class="govuk-visually-hidden"> contact address</span>
               </a>
             </dd>
           </div>
+          {% endif %}
+
+          {% if (data['how-contacted'] == "yes") %}
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Mobile phone number
             </dt>
             <dd class="govuk-summary-list__value">
-              07700 900457
+              {{ data['contact-by-phone'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="telephone">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
           </div>
+        {% endif %}
+
+        {% if (data['other-phone'] == "yes") %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['landline'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="landline">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
 
         </dl>
 
         <h2 class="govuk-heading-m">
           Your health conditions
         </h2>
-
+         
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        {% if (data['reason'] ) %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Claiming because of coronavirus
+              Reason for claiming because of coronavirus
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {% if (data['reason'] == "reason-1") %}
+              I'm at high risk because I have an underlying health condition (shielding)
+              {% endif %}
+              {% if (data['reason'] == "reason-2") %}
+              I'm self-isolating because I have symptoms of coronavirus
+              {% endif %}
+              {% if (data['reason'] == "reason-3") %}
+              I'm self-isolating because I came into contact with someone who has symptoms of coronavirus. Or I was told to self-isolate by a test and trace service
+              {% endif %}
+              {% if (data['reason'] == "reason-4") %}
+              Other reason
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="coronavirus-reason">
                 Change<span class="govuk-visually-hidden"> conditions</span>
               </a>
             </dd>
           </div>
+          {% if (data['reason'] == "reason-4") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How affected by coronavirus if other
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['coronavirus-other']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="coronavirus-date">
+                Change<span class="govuk-visually-hidden"> conditions</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+          {% if (data['reason'] == "reason-1") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Received letter or text from NHS if shielding
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['told-to-shield']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="coronavirus-date">
+                Change<span class="govuk-visually-hidden"> conditions</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date first affected by coronavirus
             </dt>
             <dd class="govuk-summary-list__value">
-              3 March 2020
+              {{data['coronavirus-day']}} {{data['coronavirus-month'] | toMonth }} {{data['coronavirus-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="coronavirus-date">
                 Change<span class="govuk-visually-hidden"> conditions</span>
               </a>
             </dd>
           </div>
+          {% if (data['reason'] == "reason-2") or (data['reason'] == "reason-3") or (data['reason'] == "reason-4") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Other health conditions
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{ data['other-condition'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="do-you-have-health-condition">
                 Change<span class="govuk-visually-hidden"> conditions</span>
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% if (data['other-condition'] == "yes") or (data['reason'] == "reason-1") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Conditions
@@ -177,38 +249,63 @@
               Started 20 November 2018
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="condition">
                 Change<span class="govuk-visually-hidden"> conditions</span>
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% else %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Conditions
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Abdominal pain<br>
+              Started 1 June 2013<br>
+              <br>
+              Broken leg<br>
+              Started 20 November 2018
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="condition">
+                Change<span class="govuk-visually-hidden"> conditions</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Doctor's details
             </dt>
             <dd class="govuk-summary-list__value">
-              Dr Sarah Philips<br>
-              72 Guild street<br>
-              London<br>
-              SF23 6FH<br>
-              020 7946 0809<br>
+              {{ data['surgery'] }}<br>
+              {{ data['gp-phone'] }}<br>
+              {{ data['gp'] }}<br>
+              {{ data['gp-address-line-1'] }} <br>
+              {{ data['gp-address-line-2'] }} <br>
+              {{ data['gp-address-town'] }} <br>
+              {{ data['gp-address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="gpsurgery">
                 Change<span class="govuk-visually-hidden"> licence period</span>
               </a>
             </dd>
           </div>
+          {% if (data['terminal-illness'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Life expectancy
             </dt>
             <dd class="govuk-summary-list__value">
-              Could be less than 6 months<br>
-              More than 6 months<br>
+              Could be less than 6 months
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="severe-condition">
                 Change<span class="govuk-visually-hidden"> life expectancy</span>
               </a>
             </dd>
@@ -218,53 +315,75 @@
               DS1500 form sent
             </dt>
             <dd class="govuk-summary-list__value">
-              No
+              {{ data['ds1500'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="ds1500-report">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% if (data['terminal-illness'] == "no") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Life expectancy
+            </dt>
+            <dd class="govuk-summary-list__value">
+              More than 6 months
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="severe-condition">
+                Change<span class="govuk-visually-hidden"> life expectancy</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Currently in hospital
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{ data['hospital'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="hospital">
                 Change
               </a>
             </dd>
           </div>
+          {% if (data['hospital'] == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Hospital details
             </dt>
             <dd class="govuk-summary-list__value">
-              Ear, nose and throat ward<br>
-              Hallamshire Hospital<br>
+              {{ data['hospital-name'] }}<br>
+              {{ data['hospital-ward'] }}<br>
               <br>
-              Admitted on 19 December 2018<br>
+              Admitted on {{data['hospital-day']}} {{data['hospital-month'] | toMonth }} {{data['hospital-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="hospital">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Pregnant
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes<br>
-              Baby due on 14 May 2019<br>
+              {{ data['pregnancy'] }}<br>
+              {% if (data['pregnancy'] == "Yes") %}
+              Baby due on {{data['due-day']}} {{data['due-month'] | toMonth }} {{data['due-year']}}<br>
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="pregnant">
                 Change<span class="govuk-visually-hidden"> licence period</span>
               </a>
             </dd>
@@ -274,10 +393,10 @@
               Doctor can share details with DWP
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{ data['consent'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="consent">
                 Change
               </a>
             </dd>
@@ -288,10 +407,31 @@
           Voluntary work
         </h2>
 
+        {% if (data['voluntary'] == "no") %}
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              <h3 class="govuk-heading-m">Your role at Oxfam</h3>
+              Doing voluntary work
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['voluntary'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change<span class="govuk-visually-hidden"> voluntary work details</span>
+              </a>
+            </dd>
+          </div>
+          </dl>
+        {% endif %}
+
+
+        {% if (data['voluntary'] == "yes") %}
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <h3 class="govuk-heading-m">Your role at {{ data['volunteer-details-1'] }}</h3>
             </dt>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -307,14 +447,14 @@
               Voluntary work details
             </dt>
             <dd class="govuk-summary-list__value">
-              Oxfam<br>
-              72 Guild street<br>
-              London<br>
-              SF23 6FH<br>
-              020 7946 0809<br>
+              {{ data['volunteer-details-1'] }}<br>
+              {{ data['voluntary-address-line-1'] }} <br>
+              {{ data['voluntary-address-line-2'] }} <br>
+              {{ data['voluntary-address-town'] }} <br>
+              {{ data['voluntary-address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="voluntary-details">
                 Change<span class="govuk-visually-hidden"> voluntary work details</span>
               </a>
             </dd>
@@ -324,10 +464,10 @@
               Type of voluntary work
             </dt>
             <dd class="govuk-summary-list__value">
-              Spend some time helping on the tills and washing clothes before they go on sale.
+            {{ data['more-detail'] }}            
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="voluntary-work-role">
                 Change<span class="govuk-visually-hidden"> life expectancy</span>
               </a>
             </dd>
@@ -337,10 +477,16 @@
               Hours of voluntary work each week
             </dt>
             <dd class="govuk-summary-list__value">
-              1 hour
+              {% if (data['voluntary-work-hours'] == "yes") %}
+              {{ data['voluntary-hours'] }} hours each week
+              {% endif %}
+              {% if (data['voluntary-work-hours'] == "no") %}
+              Different number of hours each week
+              {% endif %}
+
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="voluntary-hours">
                 Change
               </a>
             </dd>
@@ -353,15 +499,17 @@
               Doing other voluntary work
             </dt>
             <dd class="govuk-summary-list__value">
-              No
+              No 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="voluntary-work-another">
                 Change
               </a>
             </dd>
           </div>
         </dl>
+        {% endif %}
+
         <h2 class="govuk-heading-m">
           Paid work
         </h2>
@@ -372,20 +520,22 @@
               Currently employed
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{ data['work'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="work">
                 Change
               </a>
             </dd>
           </div>
         </dl>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        {% if (data['work'] == "yes") %}
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-3">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              <h3 class="govuk-heading-m">Your job at Boots</h3>
+              <h3 class="govuk-heading-m">Your job at {{ data['employer-details-1'] }}</h3>
             </dt>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -400,15 +550,16 @@
               Employment details
             </dt>
             <dd class="govuk-summary-list__value">
-              Sales assistant<br>
-              Boots<br>
-              020 7946 0076<br>
-              72 Guild Street<br>
-              London<br>
-              S10 4JF<br>
+              {{ data['job-title'] }}<br>
+              {{ data['employer-details-1'] }}<br>
+              {{ data['employer-telephone'] }}<br>
+              {{ data['employer-address-line-1'] }} <br>
+              {{ data['employer-address-line-2'] }} <br>
+              {{ data['employer-address-town'] }} <br>
+              {{ data['employer-address-postcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="work-emp-details">
                 Change
               </a>
             </dd>
@@ -418,36 +569,52 @@
               Off sick from this work
             </dt>
             <dd class="govuk-summary-list__value">
-              No
+              {{ data['offSick'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="worksick">
                 Change
               </a>
             </dd>
           </div>
+          {% if (data['offSick'] == "yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Last worked
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['last-work-day']}} {{data['last-work-month'] | toMonth }} {{data['last-work-year']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="last-work">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Employment status
             </dt>
             <dd class="govuk-summary-list__value">
-              Employee
+              {{data['employee']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="work-self-emp">
                 Change
               </a>
             </dd>
           </div>
+          {% if (data['offSick'] == "no") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Hours you work each week
             </dt>
             <dd class="govuk-summary-list__value">
-              7 hours
+              {{data['hours-worked-a-week']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="work-hours">
                 Change
               </a>
             </dd>
@@ -457,10 +624,10 @@
               Earnings
             </dt>
             <dd class="govuk-summary-list__value">
-              £124 weekly
+              £{{data['current-employment--weekly-net']}} {{data['how-often-paid']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="payfrequency">
                 Change
               </a>
             </dd>
@@ -470,10 +637,10 @@
               Professional support worker
             </dt>
             <dd class="govuk-summary-list__value">
-              No
+              {{data['work-supported']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="work-supported">
                 Change
               </a>
             </dd>
@@ -483,17 +650,33 @@
               Expenses
             </dt>
             <dd class="govuk-summary-list__value">
-              Travel and subsistence
+              {{data['expenses']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="expenses">
                 Change
               </a>
             </dd>
           </div>
+          {% if (data['expenses'] == "yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Expenses details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['expenses-more-detail']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="expenses-details">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+          {% endif %}
         </dl>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        {# <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               <h3 class="govuk-heading-m">Your job at Co op</h3>
@@ -564,7 +747,7 @@
             </dd>
           </div>
 
-        </dl>
+        </dl>#}
         <h4 class="govuk-heading-m">Other paid work</h4>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -572,75 +755,68 @@
               Any other jobs
             </dt>
             <dd class="govuk-summary-list__value">
-              No
+              {{data['work-another']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="work-another">
                 Change
               </a>
             </dd>
           </div>
-        </dl>
+        </dl> 
+
+        {% endif %}
 
         <h2 class="govuk-heading-m">
           Statutory pay
         </h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Getting Statutory Sick Pay
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Yes
-              No
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Statutory Sick Pay in the last 12 weeks
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Yes
-
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Statutory Sick Pay ended
-            </dt>
-            <dd class="govuk-summary-list__value">
-              18 December 2018
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-              </a>
-            </dd>
-          </div>
+          {% if (data['statutory-pay'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Statutory Sick Pay ends
             </dt>
             <dd class="govuk-summary-list__value">
-              18 January 2019
+              {{data['ssp-day']}} {{data['ssp-month'] | toMonth }} {{data['ssp-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="statutory-pay-end">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% if (data['statutory-pay'] == "no") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Statutory Sick Pay in the last 12 weeks
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['statutory-pay-recent']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="statutory-pay-recent">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+          {% if (data['statutory-pay-recent'] == "yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Statutory Sick Pay ended
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['ssp-recent-day']}} {{data['ssp-recent-month'] | toMonth }} {{data['ssp-recent-year']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="statutory-pay-recent-end">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Other statutory payments
@@ -649,24 +825,41 @@
               Statutory Maternity Pay
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="statutory-pay-other">
                 Change
               </a>
             </dd>
           </div>
+          {% if (data['fit-work'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Return to work date
             </dt>
             <dd class="govuk-summary-list__value">
-              18 March 2019
+              {{data['fit-day']}} {{data['fit-month'] | toMonth }} {{data['fit-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="fit-for-work">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% if (data['fit-work'] == "no") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Return to work date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No, I do not know
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="fit-for-work">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% endif %}
         </dl>
 
         <h2 class="govuk-heading-m">Claim date</h2>
@@ -677,27 +870,26 @@
               Claim start date
             </dt>
             <dd class="govuk-summary-list__value">
-              18 January 2019
+              {{data['claim-day']}} {{data['claim-month'] | toMonth }} {{data['claim-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="claimdate">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
           </div>
         </dl>
         <h2 class="govuk-heading-m">Working and living abroad</h2>
-
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Worked abroad in the last 5 years
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{data['work-overseas']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="work-overseas">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
@@ -707,10 +899,10 @@
               Lived abroad with family member in the armed forces in the last 12 weeks
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{data['military-overseas']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="military-overseas">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
@@ -722,20 +914,35 @@
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
-
+            {% if (data['pension'] == "notsure") %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Getting money from a pension or annuity
               </dt>
               <dd class="govuk-summary-list__value">
-                Yes
+                I'm not sure
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a href="#">
+                <a href="pension">
                   Change
                 </a>
               </dd>
             </div>
+            {% else %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Getting money from a pension or annuity
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['pension']}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="pension">
+                  Change
+                </a>
+              </dd>
+            </div>
+            {% endif %}
         </dl>
 
 
@@ -744,20 +951,35 @@
           Permanent health insurance
         </h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
+          {% if (data['insurance'] == "notsure") %}
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Permanent health insurance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              I'm not sure
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="insurance">
+                Change
+              </a>
+            </dd>
+          </div>
+          {% else %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Permanent health insurance
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{data['insurance']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="insurance">
                 Change
               </a>
             </dd>
           </div>
+          {% endif %}
         </dl>
 
         <h2 class="govuk-heading-m">
@@ -769,10 +991,10 @@
               DWP can share decision with your doctor
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes
+              {{data['consent-outcome']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="consent-outcome">
                 Change
               </a>
             </dd>

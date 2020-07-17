@@ -748,6 +748,9 @@
           </div>
 
         </dl>
+
+        #}
+
         <h4 class="govuk-heading-m">Other paid work</h4>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -755,15 +758,15 @@
               Any other jobs
             </dt>
             <dd class="govuk-summary-list__value">
-              No
+              {{data['work-another']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="work-another">
                 Change
               </a>
             </dd>
           </div>
-        </dl> #}
+        </dl> 
 
         {% endif %}
 

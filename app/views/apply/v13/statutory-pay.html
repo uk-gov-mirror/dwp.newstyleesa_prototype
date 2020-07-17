@@ -19,40 +19,43 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form id="form" method="post" action="ds1500-report">
+    <form id="form" method="post">
 
     <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+      <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Does your doctor, consultant or specialist nurse think you might not live longer than 6 months, because of your condition?
+            Are you getting Statutory Sick Pay?
           </h1>
         </legend>
 
-        <p>You may get benefits at a higher rate and start getting payments quicker than usual. This is sometimes called ’special rules’.</p>
-
+        <span id="dob-hint" class="govuk-hint">
+		      Your employer or accountant can tell you this if you’re not sure. It should also be shown on any pay slips you get.
+		    </span>
+        
         <div class="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="changed-name-1" name="terminal-illness" type="radio" value='yes~/apply/v13/ds1500-report'>
-            <label class="govuk-label govuk-radios__label" for="changed-name-1">
-              Yes
+            <input class="govuk-radios__input" id="statutory-pay-1" name="statutory-pay" type="radio" value='yes~/apply/v13/statutory-pay-end'>
+            <label class="govuk-label govuk-radios__label" for="statutory-pay-1">
+             Yes
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="changed-name-2" name="terminal-illness" type="radio" value='no~/apply/v13/hospital'>
-            <label class="govuk-label govuk-radios__label" for="changed-name-2">
-              No
+            <input class="govuk-radios__input" id="statutory-pay-2" name="statutory-pay" type="radio" value='no~/apply/v13/statutory-pay-recent'>
+            <label class="govuk-label govuk-radios__label" for="statutory-pay-2">
+            No
             </label>
           </div>
         </div>
       </fieldset>
     </div>
 
-    <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- ds1500-report -->
+    <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- pension -->
 
     </form>
 
   </div><!-- govuk-grid-column-two-thirds -->
 </div><!-- govuk-grid-row -->
 {% endblock %}
+
 

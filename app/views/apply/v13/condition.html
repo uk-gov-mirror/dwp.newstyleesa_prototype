@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layoutWithCookies.html" %}
 
 {% block beforeContent %}
 <div class="govuk-phase-banner">
@@ -47,10 +47,11 @@
           </div>
 
           <div class="govuk-form-group hidden autocomplete bold-label">
+            <label for="conditions-{{ i }}-name" class="govuk-label">Your first condition</label>
             <div id="conditions-{{ i }}"></div>
             {{ govukInput({
               label: {
-                text: "Your first condition"
+                text: ""
               },
               id: "fallback",
               name: "fallback"

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layoutWithCookies.html" %}
 
 {% block beforeContent %}
 <div class="govuk-phase-banner">
@@ -31,19 +31,19 @@
 
     <div class="govuk-form-group">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="terminal-1" name="terminal" type="radio" value='yes' data-aria-controls="yes-changed">
+          <input class="govuk-radios__input" id="terminal-1" name="work-supported" type="radio" value='Yes' data-aria-controls="yes-changed">
           <label class="govuk-label govuk-radios__label" for="terminal-1">
             Yes
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="terminal-2" name="terminal" type="radio" value='no' aria-controls="no-reveal">
+          <input class="govuk-radios__input" id="terminal-2" name="work-supported" type="radio" value='No' aria-controls="no-reveal">
           <label class="govuk-label govuk-radios__label" for="terminal-2">
             No
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="terminal-2" name="terminal" type="radio" value='no' aria-controls="no-reveal">
+          <input class="govuk-radios__input" id="terminal-2" name="work-supported" type="radio" value='I’m not sure' aria-controls="no-reveal">
           <label class="govuk-label govuk-radios__label" for="terminal-2">
             I’m not sure
           </label>
