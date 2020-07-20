@@ -30,7 +30,7 @@
 
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading">
-                How often are you paid by {{ data['employer-details'] | split(',') | last }}?
+                How often are you paid by {{ data['employer-details'] | split(',') | last | default("Asda")}}?
               </h2>
             </legend>
             <div class="govuk-radios">
@@ -92,7 +92,7 @@
 
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-padding-top-6">
               <h2 class="govuk-fieldset__heading">
-                How much was your last payment from {{ data['employer-details'] | split(',') | last }}?
+                How much was your last payment from {{ data['employer-details'] | split(',') | last | default("Asda")}}?
               </h2>
             </legend>
             <div class="govuk-currency-input">
