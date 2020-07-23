@@ -30,7 +30,19 @@
             </h1>
             </legend>
 
-            <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+            {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+            {{ govukCharacterCount({
+              name: "with-hint",
+              id: "with-hint",
+              maxlength: 500,
+              label: {
+                text: ""
+              },
+              hint: {
+                text: ""
+              }
+            }) }}
       
             <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- voluntary-hours -->
         </div> <!-- form-group -->
