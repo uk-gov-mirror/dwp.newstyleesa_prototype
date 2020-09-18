@@ -77,7 +77,7 @@
 
   {# Universal Credit block #}
   {# {% if (data['universal-credit'] == "no" and data['national-insurance'] == "yes" or data['national-insurance'] == "notsure" ) %} #}
-  {% if (data['universal-credit'] == "no") %}
+  {% if (data['universal-credit'] == "No") %}
 
 
   <h3 class="govuk-heading-m">Do you need help with housing costs or support for a partner or child?</h3>
@@ -92,7 +92,7 @@
 
   {% endif %}    
 
-  {% if (data['universal-credit'] == "yes") %}
+  {% if (data['universal-credit'] == "Yes") %}
 
   <h3 class="govuk-heading-m">Tell Universal Credit</h3>
 
