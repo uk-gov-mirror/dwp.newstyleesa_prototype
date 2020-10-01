@@ -50,18 +50,34 @@
         </legend>
 
         <div class="govuk-radios govuk-radios">
+          <!-- Yes, goes to add another job -->
+        <div class="govuk-radios govuk-radios">
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="changed-name-1" name="work-another" type="radio" value='Yes~/apply/live/work-emp-details' data-aria-controls="yes-cond">
             <label class="govuk-label govuk-radios__label" for="changed-name-1">
               Yes
             </label>
           </div>
+
+        <!-- If user answers yes to getting SSP in eligibility, then ask when it ends -->
+        {% if (data['statutory-pay'] == "yes") %}
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="changed-name-2" name="work-another" type="radio" value='No~/apply/live/statutory-pay'>
+            <input class="govuk-radios__input" id="changed-name-2" name="work-another" type="radio" value='No~/apply/live/statutory-pay-end'>
             <label class="govuk-label govuk-radios__label" for="changed-name-2">
               No
             </label>
           </div>
+
+        <!-- If user answers no to getting SSP in eligibity, then ask if they've had it in last 12 weeks -->
+        {% else %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="changed-name-2" name="pension" type="radio" value='no~/apply/live/statutory-pay-recent'>
+            <label class="govuk-label govuk-radios__label" for="changed-name-2">
+              No
+            </label>
+          </div>
+
+        {% endif %}
         </div>
       </fieldset>
     </div>
