@@ -144,3 +144,20 @@ var monthNumbers = [
 	if(document.querySelector(".date-3-months-ago")) {
 	  document.querySelector(".date-3-months-ago").innerHTML = pd + " " + monthNumbers[pm] + " " + py;
 	}
+
+	// suggest claim date
+
+	var suggestedClaimDate = document.querySelector(".suggested-claim-date");
+	if(suggestedClaimDate) {
+	var claimDate = new Date(
+		parseInt(suggestedClaimDate.getAttribute('data-year'), 10),
+		parseInt(suggestedClaimDate.getAttribute('data-month'), 10)-1,
+		parseInt(suggestedClaimDate.getAttribute('data-day'), 10)
+	);
+	var numberOfDaysToAdd = 1;
+	claimDate.setDate(claimDate.getDate() + numberOfDaysToAdd);
+	ny = claimDate.getFullYear();
+	nm = claimDate.getMonth();
+	nd = claimDate.getDate();
+	suggestedClaimDate.innerHTML = nd + "&nbsp" + monthNames[nm] + "&nbsp" + ny;
+}
