@@ -25,7 +25,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <form id="form" method="post" action="worksick">
-      {% if (data['self-employed']) %}
+      {% if (data['employment-status'] == "Self-employed") %}
         <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
         Self-employment details
         </h1>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="govuk-form-group">
-          {% if (data['self-employed']) %}
+          {% if (data['employment-status'] == "Self-employed") %}
           <label class="govuk-label" for="employer-details-name">
           Business name
           </label>
@@ -69,7 +69,7 @@
 
         <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-        {% if (data['self-employed']) %}  
+        {% if (data['employment-status'] == "Self-employed") %}  
           <h2 class="govuk-fieldset__heading">
             Business address
           </h2>
