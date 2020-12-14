@@ -116,6 +116,36 @@
           </div>
           {% endif %}
 
+          {% if (data['wales-postcode'] == "yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Written to in Welsh
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['written-language'] | default("Yes")}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="write-language">
+                Change<span class="govuk-visually-hidden"> if you're written to in Welsh</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Spoken to in Welsh
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['speak-language'] | default("Yes")}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="speak-language">
+                Change<span class="govuk-visually-hidden"> if you're spoken to in Welsh</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+
+
           {% if (data['how-contacted'] == "yes") %}
 
           <div class="govuk-summary-list__row">
