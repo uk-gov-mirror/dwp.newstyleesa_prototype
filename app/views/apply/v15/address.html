@@ -29,11 +29,8 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-   {% if (data['wales-postcode'] == "yes") %}
-    <form id="form" method="post" action="write-language">
-  {% else %}
-    <form id="form" method="post" action="telephone">
-  {% endif %}
+    <form id="form" method="post" action="">
+  
 
 
       <fieldset class="govuk-fieldset">
@@ -71,18 +68,6 @@
           </label>
           <input class="govuk-input govuk-!-width-one-third" id="address-postcode" name="address-postcode" type="text">
         </div>
-
-{# Visually hidden to trigger Welsh postcode journey #}
-          <div class="govuk-radios govuk-radios--small">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="wales-postcode" name="wales-postcode" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="wales-postcode" style="color:white;">
-                Wales postcode
-              </label>
-            </div>
-          </div>
-{# End of visually hidden #}
-
 
 
       </fieldset>

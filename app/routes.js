@@ -212,5 +212,19 @@ router.get('*', function (req, res, next) {
 })
 
 
+// if postcode is in Wales, show the contact preference questions
+router.post('/apply/v15/address', function (req, res) {
+
+  const welsh = req.session.data['address-postcode']
+
+  if (welsh == 'wales' ) {
+    res.redirect('/apply/v15/write-language')
+  } else {
+    res.redirect('/apply/v15/telephone')
+  }
+})
+
+
+
 
 module.exports = router
