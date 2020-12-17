@@ -218,7 +218,7 @@ router.post('/apply/v15/address', function (req, res) {
   const welsh = req.session.data['address-postcode']
 
   if (welsh == 'wales' ) {
-    res.redirect('/apply/v15/write-language')
+    res.redirect('/apply/v15/language-preference-writing')
   } else {
     res.redirect('/apply/v15/telephone')
   }

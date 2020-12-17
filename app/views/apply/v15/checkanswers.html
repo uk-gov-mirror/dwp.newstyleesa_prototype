@@ -119,26 +119,26 @@
           {% if (data['address-postcode'] == "wales") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Written to in Welsh
+              Language preference for writing
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['written-language'] | default("Yes")}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="write-language">
+              <a href="language-preference-writing">
                 Change<span class="govuk-visually-hidden"> if you're written to in Welsh</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Spoken to in Welsh
+              Language preference for speaking
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['speak-language'] | default("Yes")}}
+              {{ data['language-preference-speaking'] | default("Yes")}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="speak-language">
+              <a href="language-preference-speaking">
                 Change<span class="govuk-visually-hidden"> if you're spoken to in Welsh</span>
               </a>
             </dd>
