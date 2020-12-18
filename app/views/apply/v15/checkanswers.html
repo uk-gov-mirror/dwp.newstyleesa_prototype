@@ -115,11 +115,13 @@
             </dd>
           </div>
           {% endif %}
+          </dl>
 
           {% if (data['address-postcode'] == "wales") %}
           <h2 class="govuk-heading-m">
           Language preference
         </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Writing
@@ -146,10 +148,12 @@
               </a>
             </dd>
           </div>
+          </dl>
           {% endif %}
 
 
           {% if (data['how-contacted'] == "yes") %}
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9"> 
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -167,7 +171,6 @@
         {% endif %}
 
         {% if (data['other-phone'] == "yes") %}
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Telephone number
