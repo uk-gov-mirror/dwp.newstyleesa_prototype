@@ -117,9 +117,12 @@
           {% endif %}
 
           {% if (data['address-postcode'] == "wales") %}
+          <h2 class="govuk-heading-m">
+          Language preference
+        </h2>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Language preference for writing
+              Writing
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['written-language'] | default("Yes")}}
@@ -132,7 +135,7 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Language preference for speaking
+              Speaking
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['language-preference-speaking'] | default("Yes")}}
