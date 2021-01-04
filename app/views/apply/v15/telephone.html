@@ -30,8 +30,8 @@
       
       {% set phoneHtml %}
       {{ govukInput({
-        id: "contact-by-phone",
-        name: "contact-by-phone",
+        id: "mobile-number",
+        name: "mobile-number",
         type: "tel",
         classes: "govuk-!-width-one-third",
         label: {
@@ -46,7 +46,7 @@
       
       {{ govukRadios({
         idPrefix: "how-contacted-conditional",
-        name: "how-contacted",
+        name: "mobile-phone",
         fieldset: {
           legend: {
             text: "Do you have a mobile number?",
@@ -77,7 +77,7 @@
 
       {{ govukRadios({
         idPrefix: "how-contacted-conditional",
-        name: "how-contacted",
+        name: "mobile-phone",
         fieldset: {
           legend: {
             text: "Do you have a mobile number?",

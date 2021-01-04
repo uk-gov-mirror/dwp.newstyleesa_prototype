@@ -151,16 +151,33 @@
           </dl>
           {% endif %}
 
+        <h2 class="govuk-heading-m">
+          Phone number
+        </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9"> 
 
-          {% if (data['how-contacted'] == "yes") %}
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9"> 
-
+          {% if (data['mobile-phone'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Mobile phone number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['contact-by-phone'] | default("07700 900457")}}
+              {{ data['mobile-number'] | default("07700 900457")}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="telephone">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['mobile-phone'] == "no") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Mobile phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="telephone">
@@ -177,6 +194,21 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['landline'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="landline">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['other-phone'] == "no") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="landline">
