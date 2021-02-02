@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
- Permanent health insurance - Apply for New Style Employment and Support Allowance - GOV.UK
+ Inherited pension or annuity payments - Apply for New Style Employment and Support Allowance - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -23,36 +23,32 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form id="form" method="post" action="bank">
+    <form id="form" method="post" action="insurance">
 
     <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="insurance-hint">
+      <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Are you getting any money from permanent health insurance set up by an employer?
+            Do you get pension or annuity payments that you’ve inherited from someone who died?
           </h1>
         </legend>
-
-        <span id="phi-hint" class="govuk-hint">
-        Permanent health insurance protects your income if you stop work due to an illness, injury or disability.
-      </span>
-
-        <div class="govuk-radios" data-module="govuk-radios">
+        
+        <div class="govuk-radios govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="insurance-1" name="insurance" type="radio" value='Yes~/apply/v16/bank' data-aria-controls="yes-cond">
-            <label class="govuk-label govuk-radios__label" for="insurance-1">
+            <input class="govuk-radios__input" id="pension-inherit-1" name="pension-inherit" type="radio" value='Yes~/apply/v16/insurance' data-aria-controls="yes-cond">
+            <label class="govuk-label govuk-radios__label" for="pension-inherit-1">
               Yes
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="insurance-2" name="insurance" type="radio" value='No~/apply/v16/bank'>
-            <label class="govuk-label govuk-radios__label" for="insurance-2">
+            <input class="govuk-radios__input" id="pension-inherit-2" name="pension-inherit" type="radio" value='No~/apply/v16/insurance'>
+            <label class="govuk-label govuk-radios__label" for="pension-inherit-2">
               No
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="not-sure" name="insurance" type="radio" value="notsure~/apply/v16/bank">
-            <label class="govuk-label govuk-radios__label" for="not-sure">
+            <input class="govuk-radios__input" id="pension-inherit-2" name="pension-inherit" type="radio" value='notsure~/apply/v16/insurance'>
+            <label class="govuk-label govuk-radios__label" for="pension-inherit-3">
               I’m not sure
             </label>
           </div>
@@ -60,7 +56,7 @@
       </fieldset>
     </div>
 
-    <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- insurance-detail -->
+    <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- occ-pension-details -->
 
     </form>
 
