@@ -904,7 +904,22 @@
         <h2 class="govuk-heading-m">Claim date</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
+          {% if (data['statutory-pay'] == "yes") or (data['statutory-pay-recent'] == "yes") %}
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Claim from <span class="suggested-claim-date" data-year="{{ data['ssp-year'] }}" data-month="{{ data['ssp-month'] }}" data-day="{{ data['ssp-day'] }}"></span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['claim-date-statutory-pay'] | default("Yes")}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="claim-start-date-if-statutory-sick-pay">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+          {% else %}
+            <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Claim start date
             </dt>
@@ -917,13 +932,15 @@
               </a>
             </dd>
           </div>
-          {% if (data['claim-end'] == "yes") %}
+          {% endif %}
+
+          {% if (data['claim-date-statutory-pay'] == "no") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Claim end date
+              Claim start date
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data['claim-end-day']}} {{data['claim-end-month'] | toMonth }} {{data['claim-end-year']}}
+              {{data['claim-day']}} {{data['claim-month'] | toMonth }} {{data['claim-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="claimdate">
