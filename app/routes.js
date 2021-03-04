@@ -236,6 +236,18 @@ router.post('/apply/v16/address', function (req, res) {
   }
 })
 
+// if postcode is in Wales, show the contact preference questions - Live
+router.post('/apply/live/address', function (req, res) {
+
+  const welsh = req.session.data['address-postcode']
+
+  if (welsh == 'wales' ) {
+    res.redirect('/apply/live/language-preference-writing')
+  } else {
+    res.redirect('/apply/live/telephone')
+  }
+})
+
 
 
 
