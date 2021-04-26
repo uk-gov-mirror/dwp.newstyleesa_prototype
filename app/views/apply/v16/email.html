@@ -23,7 +23,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form id="form" method="post">
+    {% if (data['coronavirus'] == "yes") %}
+    <form id="form" method="post" action="coronavirus-reason">
+    {% else %}
+    <form id="form" method="post" action="condition">
+    {% endif %}
         
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -34,8 +38,8 @@
             label: {
               text: "Email address"
             },
-            id: "email",
-            name: "email",
+            id: "emailaddress",
+            name: "emailaddress",
             type: "email",
             autocomplete: "email",
             spellcheck: false

@@ -140,7 +140,7 @@
               Speaking
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['language-preference-speaking'] | default("Yes")}}
+              {{ data['language-preference-speaking'] | default("Yes") }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="language-preference-speaking">
@@ -152,7 +152,7 @@
           {% endif %}
 
         <h2 class="govuk-heading-m">
-          Phone number
+          Contact details [need content]
         </h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9"> 
 
@@ -162,7 +162,7 @@
               Mobile phone number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['mobile-number'] | default("07700 900457")}}
+              {{ data['mobile-number'] | default("07700 900457") }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="telephone">
@@ -212,6 +212,36 @@
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="landline">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['contact'] == "email") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['emailaddress'] | default("sarah.phillips@example.com")}}            
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="email">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['contact'] == "noEmail") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="email">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
