@@ -39,20 +39,20 @@
       <fieldset class="govuk-fieldset" aria-describedby="statutory-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
           <h2 class="govuk-fieldset__heading">
-            Are you sure you want to claim from 12 January 2021?
+            Are you sure you want to claim from {{data['claim-day']}} {{data['claim-month'] | toMonth }} {{data['claim-year']}}?
           </h2>
         </legend>
 
 
         <div class="govuk-radios">
             <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="sap" name="statutory-pay" type="radio" value='yes~/apply/v16/statutory-pay-date'>
+                <input class="govuk-radios__input" id="sap" name="statutory-pay" type="radio" value='yes~/apply/v16/claim-end-date'>
                 <label class="govuk-label govuk-radios__label" for="sap">
                   Yes
                 </label>
               </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="sap" name="statutory-pay" type="radio" value='no~/apply/v16/may-be-eligible'>
+            <input class="govuk-radios__input" id="sap" name="statutory-pay" type="radio" value='no~/apply/v16/claimdate'>
             <label class="govuk-label govuk-radios__label" for="sap">
               No
             </label>

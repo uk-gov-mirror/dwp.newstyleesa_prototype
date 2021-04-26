@@ -248,7 +248,18 @@ router.post('/apply/live/address', function (req, res) {
   }
 })
 
+// if claim start date is more than 3 months ago, take them to Are you sure page - if using for research change '1'. For example, it's December so you need to addd all months before September.
 
+router.post('/apply/v16/claimdate', function (req, res) {
+
+  const claimMonth = req.session.data['claim-month']
+
+  if(claimMonth == '1') {
+    res.redirect('/apply/v16/late-claim')
+  } else {
+    res.redirect('/apply/v16/claim-end-date')
+  }
+})
 
 
 module.exports = router
