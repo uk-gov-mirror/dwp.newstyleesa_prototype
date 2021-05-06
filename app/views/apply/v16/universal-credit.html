@@ -39,15 +39,17 @@
         This is known as permanent health insurance.
       </span> -->
 
-        <div class="govuk-radios" data-module="govuk-radios">
+      {% if (data['statutory-pay'] == "yes") or (data['statutory-pay-recent'] == "yes") %}
+
+    <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="universal-credit-1" name="universal-credit" type="radio" value="Yes" data-aria-controls="yes-cond">
+            <input class="govuk-radios__input" id="universal-credit-1" name="universal-credit" type="radio" value="No~/apply/v16/claim-start-date-if-statutory-sick-pay" data-aria-controls="yes-cond">
             <label class="govuk-label govuk-radios__label" for="universal-credit-1">
               Yes
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="universal-credit-2" name="universal-credit" type="radio" value="No">
+            <input class="govuk-radios__input" id="universal-credit-2" name="universal-credit" type="radio" value="No~/apply/v16/claim-start-date-if-statutory-sick-pay">
             <label class="govuk-label govuk-radios__label" for="universal-credit-2">
               No
             </label>
@@ -55,6 +57,30 @@
         </div>
       </fieldset>
     </div>
+
+    {% else %}
+
+    <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="universal-credit-1" name="universal-credit" type="radio" value="No~/apply/v16/claimdate" data-aria-controls="yes-cond">
+            <label class="govuk-label govuk-radios__label" for="universal-credit-1">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="universal-credit-2" name="universal-credit" type="radio" value="No~/apply/v16/claimdate">
+            <label class="govuk-label govuk-radios__label" for="universal-credit-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    
+
+    {% endif %}
+
+    
 
     <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- insurance-detail -->
 

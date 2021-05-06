@@ -254,7 +254,7 @@ router.post('/apply/v16/claimdate', function (req, res) {
 
   const claimMonth = req.session.data['claim-month']
 
-  if(claimMonth == '1') {
+  if (claimMonth == '1') {
     res.redirect('/apply/v16/late-claim')
   } else {
     res.redirect('/apply/v16/claim-end-date')
