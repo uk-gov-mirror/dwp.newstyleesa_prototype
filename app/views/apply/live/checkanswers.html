@@ -587,6 +587,19 @@
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              Employment status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['employment-status'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="employment-status.html">
+                Change
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
               Employment details
             </dt>
             <dd class="govuk-summary-list__value">
@@ -632,19 +645,7 @@
             </dd>
           </div>
           {% endif %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Employment status
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['employee']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="work-self-emp">
-                Change
-              </a>
-            </dd>
-          </div>
+          
           {% if (data['offSick'] == "no") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -730,9 +731,15 @@
         </dl>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
+            {% if (data['employment-status'] == "Self-employed") %}
+            <dt class="govuk-summary-list__key">
+              Self-employment details
+            </dt>
+          {% else %}
             <dt class="govuk-summary-list__key">
               Employment details
             </dt>
+          {% endif %}
             <dd class="govuk-summary-list__value">
               Operational coordinator<br>
               Co-op<br>
@@ -773,19 +780,7 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Employment status
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Employee
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-              </a>
-            </dd>
-          </div>
+          
 
         </dl>
 
