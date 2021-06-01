@@ -213,7 +213,7 @@ router.get('*', function (req, res, next) {
 
 
 // if postcode is in Wales, show the contact preference questions - v15
-router.post('/apply/v15/address', function (req, res) {
+router.post('/welsh-or-not-15', function (req, res) {
 
   const welsh = req.session.data['address-postcode']
 
@@ -225,19 +225,20 @@ router.post('/apply/v15/address', function (req, res) {
 })
 
 // if postcode is in Wales, show the contact preference questions - v16
-router.post('/apply/v16/address', function (req, res) {
+router.post('/welsh-or-not-16', function (req, res) {
 
-  const welsh = req.session.data['address-postcode']
+  var welsh = req.session.data['address-postcode']
 
   if (welsh == 'wales' ) {
-    res.redirect('/apply/v16/language-preference-writing')
+    res.redirect('/apply/v16/language-preference-writing');
+    
   } else {
     res.redirect('/apply/v16/telephone')
   }
 })
 
 // if postcode is in Wales, show the contact preference questions - Live
-router.post('/apply/live/address', function (req, res) {
+router.post('/welsh-or-not', function (req, res) {
 
   const welsh = req.session.data['address-postcode']
 
