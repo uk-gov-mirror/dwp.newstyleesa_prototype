@@ -78,7 +78,13 @@
               </a>
             </dd>
           </div>
+          </dl>
 
+          <h2 class="govuk-heading-m">
+            Contact details
+          </h2>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Home address
@@ -115,13 +121,9 @@
             </dd>
           </div>
           {% endif %}
-          </dl>
 
           {% if (data['address-postcode'] == "wales") %}
-          <h2 class="govuk-heading-m">
-          Language preference
-        </h2>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Writing
@@ -148,14 +150,8 @@
               </a>
             </dd>
           </div>
-          </dl>
           {% endif %}
-
-        <h2 class="govuk-heading-m">
-          Contact details [need content]
-        </h2>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9"> 
-
+        
           {% if (data['mobile-phone'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -250,9 +246,11 @@
 
         </dl>
 
+        {% if (data['reason'] ) %}
         <h2 class="govuk-heading-m">
           Coronavirus details
         </h2>
+        {% endif %}
          
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         {% if (data['reason'] ) %}
@@ -353,15 +351,16 @@
           {% endif %}
         </dl>
 
+          
+
+          {% if (data['other-condition'] == "yes") or (data['reason'] == "reason-1") %}
           <h2 class="govuk-heading-m">
             Health details
           </h2>
-
-          {% if (data['other-condition'] == "yes") or (data['reason'] == "reason-1") %}
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              First health condition
+              Health condition
             </dt>
             <dd class="govuk-summary-list__value">
               diabetes
@@ -377,21 +376,47 @@
             </ul>
             </dd>
           </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Condition start
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12 May 1990
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-list">
+                <a href="condition-start-date">
+                Change<span class="govuk-visually-hidden"> diabetes</span>
+              </a>
+              
+            </ul>
+            </dd>
+          </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Second health condition
+                Health condition
               </dt>
               <dd class="govuk-summary-list__value">
                 anxiety
               <dd class="govuk-summary-list__actions">
                 <ul class="govuk-list">
-                  <li><a href="remove-condition">
-                    Remove<span class="govuk-visually-hidden"> anxiety</span>
-                  </a></li>
-                <li><a href="condition">
+                  <a href="condition">
                   Change<span class="govuk-visually-hidden"> anxiety</span>
-                </a></li>
+                </a>
               
+              </ul>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Condition start
+              </dt>
+              <dd class="govuk-summary-list__value">
+                9 September 2010
+              <dd class="govuk-summary-list__actions">
+                <a href="condition-start-date">
+                  Change<span class="govuk-visually-hidden"> diabetes</span>
+                </a>
+                
               </ul>
               </dd>
             </div>
@@ -400,7 +425,7 @@
                 Any other health conditions
               </dt>
               <dd class="govuk-summary-list__value">
-                {{data['condition-another']}}
+                No
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a href="condition-another">
@@ -411,10 +436,13 @@
             
           {% endif %}
           {% else %}
+          <h2 class="govuk-heading-m">
+            Health details
+          </h2>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              First health condition
+              Health condition
             </dt>
             <dd class="govuk-summary-list__value">
               diabetes
@@ -430,9 +458,22 @@
             </ul>
             </dd>
           </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Condition start
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12 May 1995
+            <dd class="govuk-summary-list__actions">
+              <a href="condition-start-date">
+                Change<span class="govuk-visually-hidden"> condition start date</span>
+              </a>
+            </ul>
+            </dd>
+          </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Second health condition
+                Health condition
               </dt>
               <dd class="govuk-summary-list__value">
                 anxiety
@@ -444,7 +485,19 @@
                 <li><a href="condition">
                   Change<span class="govuk-visually-hidden"> anxiety</span>
                 </a></li>
-              
+              </ul>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Condition start
+              </dt>
+              <dd class="govuk-summary-list__value">
+                12 May 1995
+              <dd class="govuk-summary-list__actions">
+                <a href="condition-start-date">
+                  Change<span class="govuk-visually-hidden"> condition start date</span>
+                </a>
               </ul>
               </dd>
             </div>
@@ -453,7 +506,7 @@
                 Any other health conditions
               </dt>
               <dd class="govuk-summary-list__value">
-                {{data['condition-another']}}
+                No
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a href="condition-another">
