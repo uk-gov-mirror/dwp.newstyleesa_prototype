@@ -250,9 +250,11 @@
         <h2 class="govuk-heading-m">
           Coronavirus details
         </h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
         {% endif %}
          
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         {% if (data['reason'] ) %}
         <!-- <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -350,20 +352,30 @@
           </div>
           {% endif %}
         </dl>
+        {% endif %}
 
+
+        <h2 class="govuk-heading-m">
+          Health details
+        </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <!-- Show health condition if:
+          - not coronavirus claim
+          - coronavirus shielding claim
+          - coronavirus self isolation or other and have another condition -->
+
+          {% if (data['other-condition'] == "no") %}
+
+          {% else %}
           
-
-          {% if (data['other-condition'] == "yes") or (data['reason'] == "reason-1") %}
-          <h2 class="govuk-heading-m">
-            Health details
-          </h2>
-          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Health condition
             </dt>
             <dd class="govuk-summary-list__value">
-              diabetes
+              diabetes<br>
+              Started 12 May 2000
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-list">
                 <li><a href="remove-condition">
@@ -372,22 +384,6 @@
               <li><a href="condition">
                 Change<span class="govuk-visually-hidden"> diabetes</span>
               </a></li>
-              
-            </ul>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Condition start
-            </dt>
-            <dd class="govuk-summary-list__value">
-              12 May 1990
-            <dd class="govuk-summary-list__actions">
-              <ul class="govuk-list">
-                <a href="condition-start-date">
-                Change<span class="govuk-visually-hidden"> diabetes</span>
-              </a>
-              
             </ul>
             </dd>
           </div>
@@ -396,27 +392,13 @@
                 Health condition
               </dt>
               <dd class="govuk-summary-list__value">
-                anxiety
+                anxiety<br>
+                Started 7 March 1990
               <dd class="govuk-summary-list__actions">
                 <ul class="govuk-list">
                   <a href="condition">
                   Change<span class="govuk-visually-hidden"> anxiety</span>
                 </a>
-              
-              </ul>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Condition start
-              </dt>
-              <dd class="govuk-summary-list__value">
-                9 September 2010
-              <dd class="govuk-summary-list__actions">
-                <a href="condition-start-date">
-                  Change<span class="govuk-visually-hidden"> diabetes</span>
-                </a>
-                
               </ul>
               </dd>
             </div>
@@ -433,89 +415,6 @@
                 </a>
               </dd>
             </div>
-            
-          {% endif %}
-          {% else %}
-          <h2 class="govuk-heading-m">
-            Health details
-          </h2>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Health condition
-            </dt>
-            <dd class="govuk-summary-list__value">
-              diabetes
-            <dd class="govuk-summary-list__actions">
-              <ul class="govuk-list">
-                <li><a href="remove-condition">
-                  Remove<span class="govuk-visually-hidden"> diabetes</span>
-                </a></li>
-              <li><a href="condition">
-                Change<span class="govuk-visually-hidden"> diabetes</span>
-              </a></li>
-              
-            </ul>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Condition start
-            </dt>
-            <dd class="govuk-summary-list__value">
-              12 May 1995
-            <dd class="govuk-summary-list__actions">
-              <a href="condition-start-date">
-                Change<span class="govuk-visually-hidden"> condition start date</span>
-              </a>
-            </ul>
-            </dd>
-          </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Health condition
-              </dt>
-              <dd class="govuk-summary-list__value">
-                anxiety
-              <dd class="govuk-summary-list__actions">
-                <ul class="govuk-list">
-                  <li><a href="remove-condition">
-                    Remove<span class="govuk-visually-hidden"> anxiety</span>
-                  </a></li>
-                <li><a href="condition">
-                  Change<span class="govuk-visually-hidden"> anxiety</span>
-                </a></li>
-              </ul>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Condition start
-              </dt>
-              <dd class="govuk-summary-list__value">
-                12 May 1995
-              <dd class="govuk-summary-list__actions">
-                <a href="condition-start-date">
-                  Change<span class="govuk-visually-hidden"> condition start date</span>
-                </a>
-              </ul>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Any other health conditions
-              </dt>
-              <dd class="govuk-summary-list__value">
-                No
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a href="condition-another">
-                  Change
-                </a>
-              </dd>
-            </div>
-
-            
           {% endif %}
 
 
