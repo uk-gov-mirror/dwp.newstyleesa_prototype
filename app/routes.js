@@ -262,5 +262,16 @@ router.post('/apply/v16/claimdate', function (req, res) {
   }
 })
 
+router.post('/apply/live/claimdate', function (req, res) {
+
+  const claimMonth = req.session.data['claim-month']
+
+  if (claimMonth == '1') {
+    res.redirect('/apply/live/late-claim')
+  } else {
+    res.redirect('/apply/live/claim-end-date')
+  }
+})
+
 
 module.exports = router
