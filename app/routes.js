@@ -237,6 +237,18 @@ router.post('/welsh-or-not-16', function (req, res) {
   }
 })
 
+// if postcode is in Wales, show the contact preference questions - v17
+router.post('/welsh-or-not-17', function (req, res) {
+
+  const welsh = req.session.data['address-postcode']
+
+  if (welsh == 'wales' ) {
+    res.redirect('/apply/v17/language-preference-writing')
+  } else {
+    res.redirect('/apply/v17/telephone')
+  }
+})
+
 // if postcode is in Wales, show the contact preference questions - Live
 router.post('/welsh-or-not', function (req, res) {
 
@@ -259,6 +271,17 @@ router.post('/apply/v16/claimdate', function (req, res) {
     res.redirect('/apply/v16/late-claim')
   } else {
     res.redirect('/apply/v16/claim-end-date')
+  }
+})
+
+router.post('/apply/v17/claimdate', function (req, res) {
+
+  const claimMonth = req.session.data['claim-month']
+
+  if (claimMonth == '1') {
+    res.redirect('/apply/v17/late-claim')
+  } else {
+    res.redirect('/apply/v17/claim-end-date')
   }
 })
 

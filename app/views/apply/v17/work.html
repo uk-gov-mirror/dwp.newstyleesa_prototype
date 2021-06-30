@@ -39,7 +39,7 @@
     <div class="govuk-form-group">
       <div class="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="work-1" name="work" type="radio" value="yes~/apply/live/employment-status">
+          <input class="govuk-radios__input" id="work-1" name="work" type="radio" value="yes~/apply/v17/employment-status">
           <label class="govuk-label govuk-radios__label" for="work-1">
             Yes, I’m employed or self-employed
           </label>
@@ -47,7 +47,7 @@
         <!-- If user answers yes to getting SSP in eligibility, then ask when it ends -->
         {% if (data['statutory-pay'] == "yes") %}
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="work-3" name="work" type="radio" value="no~/apply/live/statutory-pay-end" aria-controls="no-reveal">
+          <input class="govuk-radios__input" id="work-3" name="work" type="radio" value="no~/apply/v17/statutory-pay-end" aria-controls="no-reveal">
           <label class="govuk-label govuk-radios__label" for="work-3">
             No, I’m unemployed
           </label>
@@ -55,7 +55,7 @@
         <!-- If user answers no to getting SSP in eligibity, then ask if they've had it in last 12 weeks -->
         {% else %}
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="work-3" name="work" type="radio" value="no~/apply/live/statutory-pay-recent" aria-controls="no-reveal">
+          <input class="govuk-radios__input" id="work-3" name="work" type="radio" value="no~/apply/v17/statutory-pay-recent" aria-controls="no-reveal">
           <label class="govuk-label govuk-radios__label" for="work-3">
             No, I’m unemployed
           </label>
