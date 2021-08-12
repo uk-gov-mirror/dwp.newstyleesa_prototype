@@ -76,8 +76,8 @@
   {% endif %}
   {# End of BAU Evidence #}
 
-  {# Self isolating and "other" Evidence #}
-  {% if (data['reason'] == "reason-2") or (data['reason'] == "reason-3") or (data['reason'] == "reason-4") %}
+  {# Self isolating, quarantine and "other" Evidence #}
+  {% if (data['coronavirus'] == "yes" ) %}
   <h3 class="govuk-heading-m">Send us evidence that you’re self-isolating to support your application</h3>
 
   <p>There are different instructions depending on the reason you're self-isolating.</p>
@@ -110,15 +110,15 @@
   </div>
   {% endif %}
 
-  {# Quarantine Evidence #}
+  <!-- {# Quarantine Evidence #}
   {% if (data['reason'] == "reason-5") %}
   <h3 class="govuk-heading-m">Send us evidence that you’re quarantining to support your application</h3>
 
   <p>Dynamic content for quarantine</p>
   
-  {% endif %}
+  {% endif %} -->
 
-  {# End of Self isolating and "other" Evidence #}
+  {# End of Self isolating, quarantine and "other" Evidence #}
 
   {# Universal Credit block #}
   {# {% if (data['universal-credit'] == "no" and data['national-insurance'] == "yes" or data['national-insurance'] == "notsure" ) %} #}
