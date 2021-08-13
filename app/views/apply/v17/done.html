@@ -76,8 +76,8 @@
   {% endif %}
   {# End of BAU Evidence #}
 
-  {# Self isolating and "other" Evidence #}
-  {% if (data['reason'] == "reason-2") or (data['reason'] == "reason-3") or (data['reason'] == "reason-4") %}
+  {# If Covid Evidence #}
+  {% if (data['coronavirus'] == "yes" ) %}
   <h3 class="govuk-heading-m">Send us evidence that you’re self-isolating to support your application</h3>
 
   <p>There are different instructions depending on the reason you're self-isolating.</p>
