@@ -19,6 +19,9 @@
 
     <h2 class="govuk-heading-l">What happens next</h2>
 
+  {# BAU #}
+    {% if (data['coronavirus'] == "no" ) %}
+
     <p class="govuk-body">Someone from your local jobcentre will contact you, by <span class="new-date"></span>. They will book you a ‘Claimant Commitment’ appointment with a work coach, which is normally over the phone.</p>
 
     <p class="govuk-body">Your work coach will talk to you about what you need to do to get New Style ESA, including asking you to:</p>
@@ -29,10 +32,8 @@
         <li>agree to tell us if your circumstances change</li>
       </ul>
 
-      <p class="govuk-body">You must agree to your Claimant Commitment before you can get New Style ESA.</p>
+    <p class="govuk-body">You must agree to your Claimant Commitment before you can get New Style ESA.</p>
 
-  {# BAU Evidence #}
-    {% if (data['coronavirus'] == "no" ) %}
     <h3 class="govuk-heading-m">Send us medical evidence to support your application</h3>
 
     <p>You can self-certify for the first 7 days of your claim but you need to send us medical evidence from day 8 onwards.</p>
@@ -76,8 +77,12 @@
   {% endif %}
   {# End of BAU Evidence #}
 
-  {# If Covid Evidence #}
+  {# If Covid #}
   {% if (data['coronavirus'] == "yes" ) %}
+  <p class="govuk-body">We will contact you about your claim by <span class="new-date"></span>.</p>
+
+  <p>You can claim for up to 14 days for coronavirus isolation. For claims longer than 14 days we will book you a <a href="https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply" class="govuk-link" rel="noreferrer noopener" target="_blank">‘Claimant Commitment’ (opens in new tab)</table></a> appointment, which is normally over the phone.</p>
+
   <h3 class="govuk-heading-m">Send us evidence that you’re self-isolating to support your application</h3>
 
   <p>There are different instructions depending on the reason you're self-isolating.</p>
@@ -96,7 +101,7 @@
 
   <p>You do not have to go to your doctor or a hospital.</p>
 
-  <p>Your isolation note will have a 16-digit reference number. We will contact you in 14 days about your claim and take this reference number from you.</p>
+  <p>Your isolation note will have a 16-digit reference number. We will contact you about your claim and take this reference number from you.</p>
   
   <h4 class="govuk-heading-s">If you’re self-isolating because you have surgery</h4>
 
