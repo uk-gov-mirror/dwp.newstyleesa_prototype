@@ -320,20 +320,20 @@
               </a>
             </dd>
           </div>
-          {% if (data['terminal-illness'] == "yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Life expectancy
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Could be less than 6 months
-            </dd>
+              Doctor said you might have less than 6 months to live
+             </dt>
+             <dd class="govuk-summary-list__value">
+               {{ data['terminal-illness'] | default("No") }}
+             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="severe-condition">
+              <a href="live-less-than-6-months">
                 Change<span class="govuk-visually-hidden"> life expectancy</span>
               </a>
             </dd>
           </div>
+          {% if (data['terminal-illness'] == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               DS1500 form sent
@@ -348,21 +348,7 @@
             </dd>
           </div>
           {% endif %}
-          {% if (data['terminal-illness'] == "no") %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Life expectancy
-            </dt>
-            <dd class="govuk-summary-list__value">
-              More than 6 months
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="severe-condition">
-                Change<span class="govuk-visually-hidden"> life expectancy</span>
-              </a>
-            </dd>
-          </div>
-          {% endif %}
+          
 
           
           <div class="govuk-summary-list__row">
