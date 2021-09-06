@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Are you applying for someone else? - Apply for New Style Employment and Support Allowance - GOV.UK
+Who is applying? - Apply for New Style Employment and Support Allowance - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -32,27 +32,39 @@ Are you applying for someone else? - Apply for New Style Employment and Support 
       <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Are you applying for someone else? [dummy content]</h1>
+            Who is applying?</h1>
         </legend>
 
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="someone-else" name="someone-else" type="radio" value="myself~/apply/v17/eligibility-start" aria-describedby="someone-else-item-hint">
+                <label class="govuk-label govuk-radios__label" for="someone-else">
+                  I'm applying for myself
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="someone-else-2" name="someone-else" type="radio" value="applying-someone~/apply/v17/apply-by-phone" aria-describedby="someone-else-2-item-hint">
+                <label class="govuk-label govuk-radios__label" for="someone-else-2">
+                  I'm applying for someone else
+                </label>
+                <div id="someone-else-2-item-hint" class="govuk-hint govuk-radios__hint">
+                  I'm a registered appointee, deputy, power of attorney or belong to a Corporate Acting Body (CAB)
+                </div>
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="someone-else-3" name="someone-else" type="radio" value="helping-somone~/apply/v17/eligibility-start" aria-describedby="someone-else-3-item-hint">
+              <label class="govuk-label govuk-radios__label" for="someone-else-3">
+                I'm helping someone apply
+              </label>
+              <div id="someone-else-3-item-hint" class="govuk-hint govuk-radios__hint">
+                The applicant is with me and I'm supporting them with their application
+              </div>
+            </div>
+          </div>
         
-
-        <div class="govuk-radios" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="someone-else-1" name="someone-else" type="radio" value="yes~/apply/v17/apply-by-phone" data-aria-controls="yes-cond">
-            <label class="govuk-label govuk-radios__label" for="someone-else-1">
-              Yes
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="someone-else-2" name="someone-else" type="radio" value="no~/apply/v17/eligibility-start">
-            <label class="govuk-label govuk-radios__label" for="someone-else-2">
-              No
-            </label>
-          </div>
-        </div>
-      </fieldset>
-    </div>
+          </fieldset>
+        
 
     <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- insurance-detail -->
 
