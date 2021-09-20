@@ -33,8 +33,15 @@
           </h1>
         </legend>
 
+        {% if (data['coronavirus'] == "no") and (data['terminal-illness'] == "No") %}
         <p>Send us your SSP1 if you have one. This shows when your Statutory Sick Pay (SSP) ends or why you cannot get SSP.</p>
+        {% endif %}
 
+        
+
+        
+
+        
 
         <div class="govuk-radios">
           <div class="govuk-radios__item">
