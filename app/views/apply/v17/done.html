@@ -35,10 +35,14 @@
     <p class="govuk-body">You must agree to your Claimant Commitment before you can get New Style ESA.</p>
 
     <h3 class="govuk-heading-m">Send us evidence to support your application</h3>
-
+    {% if (data['terminal-illness'] == "No") %}
     {% if (data['statutory-pay-recent'] == "yes") or (data['employment-status'] == "Employee") %}
-		<p>Send us your SSP1. You can get this from your employer.</p>
-		{% endif %}
+    <p>Send us your SSP1. You can get this from your employer.</p>
+    {% endif %}
+    {% endif %}
+
+    
+
 
     <p>You can self-certify for the first 7 days of your claim but you need to send us medical evidence from day 8 onwards.</p>
     <p>The most common type of medical certificate is a fit note (also called a statement of fitness for work or a sick note), but we also accept other types of medical evidence.</p>
@@ -72,7 +76,7 @@
 
     <p>If you have a fit note, you can use the <a href="https://www.gov.uk/send-fit-note" target="_blank">Send Your Fit Note service (opens in tab)</a> to send it to us online.</p>
 
-    <p>If you have another form of medical evidence, you can send it to us by post. You can also post your fit note{% if (data['statutory-pay-recent'] == "yes") or (data['employment-status'] == "Employee") %} and your SSP1{% endif %}.</p>
+    <p>If you have another form of medical evidence, you can send it to us by post. You can also post your fit note{% if (data['terminal-illness'] == "No") %}{% if (data['statutory-pay-recent'] == "yes") or (data['employment-status'] == "Employee") %} and your SSP1{% endif %}{% endif %}.</p>
 
   <div class="govuk-inset-text">
   <h4 class="govuk-heading-s">Where to send your evidence by post</h4>

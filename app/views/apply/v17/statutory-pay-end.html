@@ -35,7 +35,7 @@
 		    </legend>
 			<p>You can find this in section B on form SSP1 if your employer has given it to you. If not, check with your employer or accountant.</p>
 			
-			{% if (data['statutory-pay'] == "yes") %}
+			{% if (data['coronavirus'] == "no") and (data['terminal-illness'] == "No") and (data['statutory-pay'] == "yes") %}			
 			<p>Send us your SSP1 as evidence.</p>
 			{% endif %}
 
