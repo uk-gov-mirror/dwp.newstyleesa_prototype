@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Helping someone apply for New Style ESA - Apply for New Style Employment and Support Allowance - GOV.UK
+ Not eligible because of State Pension age - Apply for New Style Employment and Support Allowance - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -23,30 +23,19 @@ Helping someone apply for New Style ESA - Apply for New Style Employment and Sup
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form id="form" method="post" action="eligibility-start">
-
     <fieldset class="govuk-fieldset">
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
     <h1 class="govuk-fieldset__heading">
-      Helping someone apply for New Style ESA</h1>
+      Based on your answers, you&rsquo;re not eligible for New Style ESA</h1>
   </legend>
-</fieldset>
 
-  
-<p class="govuk-body">You can help someone apply for New Style ESA if:</p>
-<ul class="govuk-list govuk-list--bullet">
-  <li>the applicant is giving you the answers</li>
-  <li>the applicant can be contacted about the claim</li>
-</ul>
-
-<p class="govuk-body">Complete the application as if you are the applicant. Do not enter your own details.</p>
-
-<p class="govuk-body">If you’re an appointee, deputy, belong to a Corporate Acting Body or have power of attorney use the <a href="cannot-apply-online.html">telephone application</a>.</p>
-
-<input type="submit" class="govuk-button" value="Continue" id="submit">
+  <p>You must be under State Pension age to claim New Style ESA.</p>
+  <p><a href="https://www.gov.uk/plan-for-retirement">Check what pension and other financial support you can get</a> if you&rsquo;re over State Pension age.</p>
 
 
-</form>
+  </div>
+
+
     </div><!-- govuk-grid-column-two-thirds -->
 </div><!-- govuk-grid-row -->
 {% endblock %}

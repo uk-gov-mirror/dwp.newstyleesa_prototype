@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+ How has coronavirus affected you? - Apply for New Style Employment and Support Allowance - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        beta
+      </strong>
+      <span class="govuk-phase-banner__text">
+        This is a new service – your <a class="govuk-link" href="feedback">feedback (opens in a new tab)</a> will help us to improve it.
+      </span>
+    </p>
+  </div>
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- <span class="govuk-caption-xl" style="display:none">
+          Content needed
+    </span> -->
+
+    <form id="form" method="post" action="">
+
+   <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Who is applying?</h1>
+        </legend>
+
+        <!-- <p class="govuk-body">Select yes if one of the following applies:</p>
+        <ul class="govuk-list govuk-list--bullet">
+        <li>you received a letter or text message from the government telling you to stay indoors for 12 weeks</li>
+        <li>you’re extremely vulnerable but have not been contacted by the NHS</li>
+        </ul> -->
+
+        
+
+        <div class="govuk-radios" data-module="govuk-radios">
+          
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-2" name="reason" type="radio" value="reason-2~/apply/live/coronavirus-date">
+            <label class="govuk-label govuk-radios__label" for="disability-2">
+              I'm applying for myself
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="reason-3" name="reason" type="radio" value="reason-3~/apply/live/coronavirus-date">
+            <label class="govuk-label govuk-radios__label" for="disability-2">
+              I'm applying on behalf of someone
+              <br />(I am a registered appointee, deputy, power of attorney or belong to a corporate acting body)
+              
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="reason" type="radio" value="reason-4~/apply/live/coronavirus-date" data-aria-controls="conditional-how-contacted-conditional-2">
+            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+              I'm helping someone apply
+<br />(The claimant is with me and I'm supporting them with their application)
+            </label>
+          </div>
+                
+      </fieldset>
+    </div>
+
+    <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- insurance-detail -->
+
+    </form>
+
+  </div><!-- govuk-grid-column-two-thirds -->
+</div><!-- govuk-grid-row -->
+{% endblock %}
+
