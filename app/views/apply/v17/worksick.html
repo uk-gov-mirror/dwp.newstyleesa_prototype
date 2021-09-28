@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
- Off sick from work - {{ data['employer-details'] | split(',') | last | default("Asda")}} - Apply for New Style Employment and Support Allowance - GOV.UK
+Are you off work from your job at {{ data['employer-details'] | split(',') | last | default("Asda")}} - Apply for New Style Employment and Support Allowance - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
