@@ -24,10 +24,9 @@
     {# BAU Evidence #}
     {% if (data['coronavirus'] == "no" ) %}
 
-    <p class="govuk-body">Someone from your local jobcentre will contact you, by <span class="new-date"></span>. They
-      will book you a ‘Claimant Commitment’ appointment with a work coach, which is normally over the phone.</p>
+    <p class="govuk-body">We will contact you by <span class="new-date"></span> and book you a ‘Claimant Commitment’ appointment, which is normally over the phone.</p>
 
-    <p class="govuk-body">Your work coach will talk to you about what you need to do to get New Style ESA, including
+    <p class="govuk-body">We'll talk to you about what you need to do to get New Style ESA, including
       asking you to:</p>
 
     <ul class="govuk-list govuk-list--bullet">
@@ -92,7 +91,7 @@
 
     {# If Covid #}
     {% if (data['coronavirus'] == "yes" ) %}
-    <p class="govuk-body">We will contact you about your claim by <span class="new-date"></span>.</p>
+    <p class="govuk-body">We will contact you about your claim by <span class="covid-date"></span>.</p>
 
     <p>You can claim for up to 14 days for coronavirus isolation. For claims longer than 14 days we will contact you to
       book a <a href="https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply"
