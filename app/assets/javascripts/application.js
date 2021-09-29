@@ -121,9 +121,9 @@ var monthNumbers = [
 	document.querySelector(".date").innerHTML = d + " " + monthNames[m] + " " + y;
   }
   
-  // Show future date
+  // Show future date - BAU date for done page
   newDate = new Date();
-  var numberOfDaysToAdd = 14;
+  var numberOfDaysToAdd = 23;
   newDate.setDate(newDate.getDate() + numberOfDaysToAdd);
   ny = newDate.getFullYear();
   nm = newDate.getMonth();
@@ -132,6 +132,20 @@ var monthNumbers = [
   if(document.querySelector(".new-date")) {
 	document.querySelector(".new-date").innerHTML = nd + "&nbsp" + monthNames[nm] + "&nbsp" + ny;
   }
+
+  // Show future date - COVID date for done page
+
+   // Show future date
+   covidDate = new Date();
+   var numberOfDaysToAdd = 14;
+   newDate.setDate(newDate.getDate() + numberOfDaysToAdd);
+   ny = covidDate.getFullYear();
+   nm = covidDate.getMonth();
+   nd = covidDate.getDate();
+   
+   if(document.querySelector(".covid-date")) {
+	 document.querySelector(".covid-date").innerHTML = nd + "&nbsp" + monthNames[nm] + "&nbsp" + ny;
+   }
 
     // Show date 3 months ago. Sorry, this is wack – can't work out how to do it properly, so just crudely minusing 91 days (Dan)
 	date3MonthsAgo = new Date();
