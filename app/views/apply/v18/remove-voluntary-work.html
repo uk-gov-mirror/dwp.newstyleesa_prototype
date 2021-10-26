@@ -1,7 +1,7 @@
 {% extends "layoutWithCookies.html" %}
 
 {% block pageTitle %}
-Are you sure you want to remove diabetes from your health conditions? - Apply for New Style Employment and Support Allowance - GOV.UK
+Are you sure you want to remove your role at {{ data['volunteer-details-1'] | default("Oxfam")}}?
 {% endblock %}
 
 {% block beforeContent %}
@@ -29,7 +29,7 @@ Are you sure you want to remove diabetes from your health conditions? - Apply fo
       <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <h1 class="govuk-fieldset__heading">
-            Are you sure you want to remove diabetes from your health conditions?
+            Are you sure you want to remove your role at {{ data['volunteer-details-1'] | default("Oxfam")}}?
           </h1>
         </legend>
 
