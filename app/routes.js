@@ -249,6 +249,18 @@ router.post('/welsh-or-not-17', function (req, res) {
   }
 })
 
+// if postcode is in Wales, show the contact preference questions - v18
+router.post('/welsh-or-not-18', function (req, res) {
+
+  const welsh = req.session.data['address-postcode']
+
+  if (welsh == 'wales' ) {
+    res.redirect('/apply/v18/language-preference-writing')
+  } else {
+    res.redirect('/apply/v18/telephone')
+  }
+})
+
 // if postcode is in Wales, show the contact preference questions - Live
 router.post('/welsh-or-not', function (req, res) {
 
