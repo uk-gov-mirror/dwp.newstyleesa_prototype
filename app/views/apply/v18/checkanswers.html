@@ -475,9 +475,6 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pregnancy'] | default("No")}}<br>
-              {% if (data['pregnancy'] == "Yes") %}
-              Baby due on {{data['due-day']}} {{data['due-month'] | toMonth }} {{data['due-year']}}<br>
-              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="pregnant">
@@ -485,6 +482,22 @@
               </a>
             </dd>
           </div>
+          {% if (data['pregnancy'] == "Yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Pregnancy due date [need content]
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['due-day']}} {{data['due-month'] | toMonth }} {{data['due-year']}}<br>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="pregnant-due-date">
+                Change<span class="govuk-visually-hidden"> licence period</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Doctor can share details with DWP
