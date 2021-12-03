@@ -308,5 +308,23 @@ router.post('/apply/live/claimdate', function (req, res) {
   }
 })
 
+// alt format
+
+router.post('/apply/v18/alt-formats-2/what-alt-format', function (req, res) {
+
+  const altFormat = req.session.data['alt-format']
+
+  if (altFormat == 'large-print') {
+    res.redirect('/apply/v18/alt-formats-2/which-font-size')
+  } 
+  if (altFormat == 'something-else') {
+    res.redirect('/apply/v18/alt-formats-2/what-how-alt')
+  } 
+  
+  else {
+    res.redirect('/apply/live/claim-end-date')
+  }
+})
+
 
 module.exports = router
