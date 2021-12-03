@@ -322,7 +322,7 @@ router.post('/apply/v18/alt-formats-2/what-alt-format', function (req, res) {
   } 
   
   else {
-    res.redirect('/apply/live/claim-end-date')
+    res.redirect('/apply/v18/alt-formats-2/which-font-size')
   }
 })
 
