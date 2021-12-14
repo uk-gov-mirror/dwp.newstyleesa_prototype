@@ -201,7 +201,7 @@
         {% if (data['other-phone'] == "no") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Telephone number
+              Phone number
             </dt>
             <dd class="govuk-summary-list__value">
               No
@@ -426,7 +426,7 @@
           {% if (data['terminal-illness'] == "Yes") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              DS1500 form sent
+              DS1500 form completed
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['ds1500'] }}
@@ -613,21 +613,7 @@
           Paid work
         </h2>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Currently employed
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['work'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="work">
-                Change
-              </a>
-            </dd>
-          </div>
-        </dl>
+        
 
         {% if (data['work'] == "yes") %}
 
@@ -941,6 +927,21 @@
             </dt>
             <dd class="govuk-summary-list__value">
               No, I do not know
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="claimdate">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+          {% if (data['claim-end'] == "yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Claim end date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['claim-end-day']}} {{data['claim-end-month'] | toMonth }} {{data['claim-end-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="claimdate">
