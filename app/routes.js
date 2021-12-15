@@ -308,7 +308,7 @@ router.post('/apply/live/claimdate', function (req, res) {
   }
 })
 
-// alt format
+// alt format version 2
 
 router.post('/apply/v18/alt-formats-2/what-alt-format', function (req, res) {
 
@@ -323,6 +323,37 @@ router.post('/apply/v18/alt-formats-2/what-alt-format', function (req, res) {
   
   else {
     res.redirect('/apply/v18/alt-formats-2/which-font-size')
+  }
+})
+
+// alt format version 3
+
+router.post('/apply/v18/alt-formats-3/what-alt-format', function (req, res) {
+
+  const altFormat = req.session.data['alt-format']
+
+  if (altFormat == 'large-print') {
+    res.redirect('/apply/v18/alt-formats-3/which-font-size')
+  } 
+  if (altFormat == 'something-else') {
+    res.redirect('/apply/v18/alt-formats-3/alt-format-list')
+  } 
+  
+  else {
+    res.redirect('/apply/v18/alt-formats-3/which-font-size')
+  }
+})
+
+router.post('/apply/v18/alt-formats-3/alt-format-list', function (req, res) {
+
+  const altFormat = req.session.data['alt-format-list']
+
+  if (altFormat == 'other') {
+    res.redirect('/apply/v18/alt-formats-3/what-how-alt')
+  } 
+  
+  else {
+    res.redirect('/apply/v18/alt-formats-3/address')
   }
 })
 
