@@ -328,7 +328,7 @@ router.post('/apply/v18/alt-formats-2/what-alt-format', function (req, res) {
 
 // alt format version 3
 
-router.post('/apply/v18/alt-formats-3/what-alt-format', function (req, res) {
+router.post('/apply/v18/alt-formats-3/what-alternative-format', function (req, res) {
 
   const altFormat = req.session.data['alt-format']
 
@@ -336,7 +336,7 @@ router.post('/apply/v18/alt-formats-3/what-alt-format', function (req, res) {
     res.redirect('/apply/v18/alt-formats-3/which-font-size')
   } 
   if (altFormat == 'something-else') {
-    res.redirect('/apply/v18/alt-formats-3/alt-format-list')
+    res.redirect('/apply/v18/alt-formats-3/other-alternative-formats')
   } 
   
   else {
@@ -344,12 +344,12 @@ router.post('/apply/v18/alt-formats-3/what-alt-format', function (req, res) {
   }
 })
 
-router.post('/apply/v18/alt-formats-3/alt-format-list', function (req, res) {
+router.post('/apply/v18/alt-formats-3/other-alternative-formats', function (req, res) {
 
   const altFormat = req.session.data['alt-format-list']
 
   if (altFormat == 'other') {
-    res.redirect('/apply/v18/alt-formats-3/what-how-alt')
+    res.redirect('/apply/v18/alt-formats-3/alternative-format-details')
   } 
   
   else {
