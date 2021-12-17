@@ -348,7 +348,7 @@ router.post('/apply/v18/alt-formats-3/other-alternative-formats', function (req,
 
   const altFormat = req.session.data['alt-format-list']
 
-  if (altFormat == 'other') {
+  if (altFormat == 'another-format') {
     res.redirect('/apply/v18/alt-formats-3/alternative-format-details')
   } 
   
