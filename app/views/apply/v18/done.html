@@ -14,7 +14,7 @@
       <p></p>
     </div>
 
-  </div> <!-- govuk.grid-column-full -->
+  </div> 
 
   <div class="govuk-grid-column-two-thirds">
 
@@ -24,7 +24,7 @@
     {# BAU Evidence #}
     {% if (data['coronavirus'] == "no" ) %}
 
-    <p class="govuk-body">We will contact you by <span class="new-date"></span> and book you a ‘Claimant Commitment’ appointment, which is normally over the phone.</p>
+    <p class="govuk-body">We will contact you by <span class="new-date"></span>. We will book you a ‘Claimant Commitment’ appointment, which is normally over the phone - unless you have told us you need an alternative format.</p>
 
     <p class="govuk-body">We'll talk to you about what you need to do to get New Style ESA, including
       asking you to:</p>
@@ -96,7 +96,7 @@
     <p>You can claim for up to 14 days for coronavirus isolation. For claims longer than 14 days we will contact you to
       book a <a href="https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply"
         class="govuk-link" rel="noreferrer noopener" target="_blank">‘Claimant Commitment’ (opens in new tab)</table>
-        </a> appointment, which is normally over the phone.</p>
+        </a> appointment. This is normally over the phone unless you have told us you need an alternative format.</p>
 
     <h3 class="govuk-heading-m">Send us evidence that you’re self-isolating to support your application</h3>
 
@@ -138,7 +138,7 @@
     {# End of COVID #}
 
     {# Universal Credit block #}
-    "notsure" ) %} #}
+   
     {% if (data['universal-credit'] == "No") %}
 
 
@@ -183,5 +183,5 @@
 
     <p><a href="https://www.gov.uk/employment-support-allowance/your-esa-claim" class="govuk-button">Finish</a></p>
 
-  </div><!-- govuk-grid-row -->
+  </div>
   {% endblock %}
