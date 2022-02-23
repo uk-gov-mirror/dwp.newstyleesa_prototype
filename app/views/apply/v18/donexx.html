@@ -23,8 +23,10 @@
 
     {# BAU Evidence #}
     {% if (data['coronavirus'] == "no" ) %}
+    {% if (data['srti'] == "no" ) %}
 
-    <p class="govuk-body">We will contact you by <span class="new-date"></span>. We will book you a ‘Claimant Commitment’ appointment, unless your Health Practitioner has informed you that you have less than 6 months to live. This is normally over the phone - unless you have told us you need an alternative format.</p>
+    <p class="govuk-body">We will contact you by <span class="new-date"></span>.</p>
+    <p class="govuk-body">We will book you a ‘Claimant Commitment’ appointment, unless your Health Practitioner has informed you that you have less than 6 months to live. This is normally over the phone - unless you have told us you need an alternative format.</p>
 
     <p class="govuk-body">We'll talk to you about what you need to do to get New Style ESA, including
       asking you to:</p>
@@ -175,6 +177,29 @@
 
     {% endif %}
     {# End of Universal Credit block #}
+
+    {% if (data['terminal-illness'] == "Yes") %}
+
+    <p class="govuk-body">We will contact you by <span class="new-date"></span>if we need more information.</p>
+
+    <h2 class="govuk-heading-m">Send us your SR1 medical form, if you have one.</h2>
+
+
+    <p class="govuk-body">This is usually sent to the DWP by your doctor or specialist nurse.</p>
+    <p class="govuk-body">If you have a copy, send it to:</p>
+    <div class="govuk-inset-text">
+      <p>Freepost DWP ESA 26</p>
+    </div>
+
+    <p class="govuk-body">You do not need to submit another DS1500 form if you have already submitted one for a Personal Independence Payment (PIP) claim.</p>
+
+    <p class="govuk-body">If you do not have a DS1500, ask your doctor or specialist nurse to complete one as soon as possible. You do not have to pay for it.</p>
+
+
+    <p class="govuk-body">If you have an SSP1 form, you need to send it to us. You can get this from your employer.</p>
+    {% endif %}
+    {# End of SRTI block #}
+
 
 
     <h3 class="govuk-heading-m">Give us your feedback</h3>
