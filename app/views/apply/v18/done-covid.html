@@ -19,165 +19,61 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h2 class="govuk-heading-l">What happens next</h2>
+    
+    <p class="govuk-body">We will contact you about your claim by <span class="new-date"></span>.</p>
 
-    <p class="govuk-body">Your claim is being processed. If we need any more information, we will contact you by 31 January 2022.</p>
+    <p>You can claim for up to 14 days for coronavirus isolation. For claims longer than 14 days we will contact you to
+      book a <a href="https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply"
+        class="govuk-link" rel="noreferrer noopener" target="_blank">‘Claimant Commitment’ (opens in new tab)</table>
+        </a> appointment. This is normally over the phone unless you have told us you need an alternative format.</p>
 
+    <p>The date of your claim must be before 24 March 2022. This is due to the temporary regulations that provided eligibility to Employment and Support Allowance (ESA) if you had been affected by coronavirus ending.</p>
+
+    <h3 class="govuk-heading-m">Send us your evidence to tell us you were self-isolating</h3>
     
    
-    <p>You can claim for up to 14 days for coronavirus isolation.</p>
-
-    <h3 class="govuk-heading-m">You need to send us evidence that you are self-isolating to support your application.</h3>
-
-    <p>There are different instructions depending on the reason you're self-isolating.</p>
-
-    <p>Send us your evidence as soon as you can so we can process your claim.</p>
-
-    <h4 class="govuk-heading-s">If you’re self-isolating (but not for surgery)</h4>
-
-    <p>You can get an <a href="https://111.nhs.uk/isolation-note/">‘isolation note’ online from NHS 111 (opens in new
-        tab)</a> if any of the following apply:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>you’re self-isolating because you have symptoms of coronavirus</li>
-      <li>you’re self-isolating because you came into contact with someone who has symptoms of coronavirus</li>
-      <li>you were told to self-isolate by a test and trace service</li>
-      <li>you’re in quarantine because you’re returning from a trip abroad</li>
-    </ul>
-
-    <p>You do not have to go to your doctor or a hospital.</p>
-
-    <p>Your isolation note will have a 16-digit reference number. We will contact you about your claim and
-      take this reference number from you.</p>
-
-    <h4 class="govuk-heading-s">If you’re self-isolating because you have surgery</h4>
-
-    <p>If you’ve been advised by your doctor or healthcare professional to self-isolate before going into hospital for
-      surgery, your letter confirming the date of your procedure is proof. Send us a copy of your appointment letter.
-    </p>
-
-    <p>If you do not have a printed copy of your letter or cannot leave your home to post it, your local council might
-      be able to help. Go to GOV.UK to <a href="https://www.gov.uk/coronavirus-local-help">find coronavirus help in your
-        local area (opens in new tab)</a>.</p>
-
-    <div class="govuk-inset-text">
-      <h4 class="govuk-heading-s">Where to send your letter by post</h4>
-      <p>Freepost DWP ESA 26</p>
-    </div>
-
-
-
-    {# BAU Evidence #}
-    {% if (data['coronavirus'] == "no" ) %}
-
-    <p class="govuk-body">We will contact you by <span class="new-date"></span>. We will book you a ‘Claimant Commitment’ appointment, which is normally over the phone - unless you have told us you need an alternative format.</p>
-
-    <p class="govuk-body">We'll talk to you about what you need to do to get New Style ESA, including
-      asking you to:</p>
 
     <ul class="govuk-list govuk-list--bullet">
-      <li>explain how your illness or disability affects your ability to work</li>
-      <li>provide medical evidence</li>
-      <li>agree to tell us if your circumstances change</li>
+      <li>an isolation note online from <a href="#" target="_blank">NHS 111 (opens in a new tab)</a>, if you or your child were self-isolating in line with your government guidance and you could not work</li>
+      <li>a notification from the NHS or public health authorities, if you had come into contact with someone with COVID-19</li>
+     
+      <li>the letter confirming the date of your procedure if you were advised by your doctor or healthcare professional to self-isolate before going into hospital for surgery
+      </li>
+     
     </ul>
 
-    <p class="govuk-body">You must agree to your Claimant Commitment before you can get New Style ESA.</p>
-
-    <h3 class="govuk-heading-m">Send us medical evidence to support your application</h3>
-
+    
     <div class="govuk-inset-text">
-      <h4 class="govuk-heading-s">Temporary change</h4>
-      <p>You will not need to provide medical evidence, including fit notes to cover the dates between 17 December 2021 and 26 January 2022. Do not ask your doctor for one.</p>
-    </div>
-
-    <p>You can self-certify for the first 7 days of your claim but you need to send us medical evidence from day 8
-      onwards.</p>
-    <p>The most common type of medical certificate is a fit note (also called a statement of fitness for work or a sick
-      note), but we also accept other types of medical evidence.</p>
-
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Other types of medical evidence
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <p id="other-medical-evidence-hint">As well as fit notes, we also accept these medical certificates:
-
-        <ul class="govuk-list govuk-list--bullet">
-          <li>Med10 (a hospital certificate given to inpatients if your treatment lasts more than 7 days)</li>
-          <li>MATB1 (if you’re pregnant but you cannot get Statutory Maternity Pay or Maternity Allowance)</li>
-          <li>CF73 (a form issued by a psychiatric hospital)</li>
-          <li>DS1500 (a form completed and sent to us by a doctor, consultant or specialist nurse if they think you
-            might not live longer than 6 months, because of your condition)</li>
-        </ul>
-
-        <p>Other forms of evidence might include a doctor’s statement, consultant’s report or Local Authority notice.
-        </p>
-
-      </div>
-    </details>
-
-    <p>You will need to keep sending us medical evidence as long as you’re unfit for work. We will tell you when you can
-      stop sending it. For example, if your fit note is for 14 days, you will need to send us another one when it runs
-      out.</p>
-
-
-
-    <h3 class="govuk-heading-m">How to send your evidence</h3>
-
-    <p>If you have a fit note, you can use the <a href="https://www.gov.uk/send-fit-note" target="_blank">Send Your Fit
-        Note service (opens in tab)</a> to send it to us online.</p>
-
-    <p>If you have another form of medical evidence, you can send it to us by post. You can also post your fit note.</p>
-
-    <div class="govuk-inset-text">
-      <h4 class="govuk-heading-s">Where to send your medical evidence by post</h4>
+      <h4 class="govuk-heading-s">Post your evidence to:</h4>
       <p>Freepost DWP ESA 26</p>
     </div>
-    {% endif %}
-    {# End of BAU Evidence #}
-
+   
 
 
     {# If Covid #}
     {% if (data['coronavirus'] == "yes" ) %}
     <p class="govuk-body">We will contact you about your claim by <span class="new-date"></span>.</p>
 
-    <p>You can claim for up to 14 days for coronavirus isolation. </p>
+    <p>Claimant Commitments ??</p>
 
-    <h3 class="govuk-heading-m">Send us evidence that you’re self-isolating to support your application</h3>
+    <p>The date of your claim must be before 24 March 2022. This is due to the temporary regulations that allowed entitlement to Employment and Support Allowance (ESA) if you had been affected by coronavirus ending.</p>
 
-    <p>There are different instructions depending on the reason you're self-isolating.</p>
+    <h3 class="govuk-heading-m">Send us your evidence to tell us you were self-isolating:</h3>
 
-    <p>Send us your evidence as soon as you can so we can process your claim.</p>
+   
 
-    <h4 class="govuk-heading-s">If you’re self-isolating (but not for surgery)</h4>
-
-    <p>You can get an <a href="https://111.nhs.uk/isolation-note/">‘isolation note’ online from NHS 111 (opens in new
-        tab)</a> if any of the following apply:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>you’re self-isolating because you have symptoms of coronavirus</li>
-      <li>you’re self-isolating because you came into contact with someone who has symptoms of coronavirus</li>
-      <li>you were told to self-isolate by a test and trace service</li>
-      <li>you’re in quarantine because you’re returning from a trip abroad</li>
+      <li>an isolation note online from NHS 111 - if you or your child were self-isolating in line with you government guidance and you cannot work</li>
+      <li>a notification from the NHS or public health authorities - if you had come into contact with someone with COVID-19</li>
+      <li>the letter confirming the date of your procedure if you were advised by your doctor or healthcare professional to self-isolate before going into hospital for surgery
+      </li>
+      <li>your travel information - if you’re quarantining after returning from abroad (Wales and Scotland only)
+      </li>
     </ul>
 
-    <p>You do not have to go to your doctor or a hospital.</p>
-
-    <p>Your isolation note will have a 16-digit reference number. We will contact you about your claim and
-      take this reference number from you.</p>
-
-    <h4 class="govuk-heading-s">If you’re self-isolating because you have surgery</h4>
-
-    <p>If you’ve been advised by your doctor or healthcare professional to self-isolate before going into hospital for
-      surgery, your letter confirming the date of your procedure is proof. Send us a copy of your appointment letter.
-    </p>
-
-    <p>If you do not have a printed copy of your letter or cannot leave your home to post it, your local council might
-      be able to help. Go to GOV.UK to <a href="https://www.gov.uk/coronavirus-local-help">find coronavirus help in your
-        local area (opens in new tab)</a>.</p>
-
+    
     <div class="govuk-inset-text">
-      <h4 class="govuk-heading-s">Where to send your letter by post</h4>
+      <h4 class="govuk-heading-s">Post your evidence to:</h4>
       <p>Freepost DWP ESA 26</p>
     </div>
     {% endif %}
