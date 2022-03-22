@@ -357,5 +357,15 @@ router.post('/apply/v18/alt-formats-3/other-alternative-formats', function (req,
   }
 })
 
+// alt format v 4
+// moves alt formats v4 route to folder
+router.use(
+  "/apply/v18/alt-formats-4/",
+  require("./views/apply/v18/alt-formats-4/_routes")
+);
+
+
+
+
 
 module.exports = router
