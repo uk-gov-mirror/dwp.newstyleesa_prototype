@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const BASE_PATH = '/apply/alt-formats-4';
+const BASE_PATH = '/apply/v18/alt-formats-4';
 const ABS_BASE_PATH = `/${BASE_PATH}`;
 const NEXT_PATH = '/apply/alt-formats-4';
 

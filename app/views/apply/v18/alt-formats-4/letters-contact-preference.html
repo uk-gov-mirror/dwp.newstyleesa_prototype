@@ -1,78 +1,103 @@
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
 
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Accessibility</span>
-        What size font do you need?
-      </h1>
-      <p>Our letters are usually in Arial font size 12.</p>
-      <form action="address-is-it-postal" method="get">
-
+      <span class="govuk-caption-xl">Accessibility</span>
+      <h1 class="govuk-heading-l">What do you need instead of a standard letter?</h1>
+      <p>We usually send letters on white paper and in Arial font size 12.</p>
+      <p>We can contact you in one of the ways listed below if this letter is not suitable. You can tell us more about your needs later, for example if you select large print you can then choose the font size.</p>
+      <form class="form" action="letters-contact-preference" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% set emailHtml %}
             {{ govukInput({
-                  id: "other",
-                  name: "other",
-                  type: "other",
+                  id: "contact-by-email",
+                  name: "contact-by-email",
+                  type: "email",
+                  autocomplete: "email",
                   spellcheck: false,
-                  classes: "govuk-!-width-one-third"
+                  classes: "govuk-!-width-one-third",
+                  label: {
+                    text: "Enter your email address"
+                  },
+                  hint: {
+                    text: "For example, name@example.com"
+                  }
                 }) }}
-        {% endset -%}
+                {% endset -%}
 
-        {{ govukRadios({
-          idPrefix: "print-size",
-          name: "Print size",
+          {{ govukRadios({
+          idPrefix: "letters-contact-preference",
+          name: "lettersContactPreference",
           fieldset: {
             legend: {
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-             text: "Select the best option for your needs."
-           },
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+               text: "Select the best option for your needs."
+             },
           items: [
 
+
             {
-              value: "size-16",
-              text: "Size 16"
+              value: "audio",
+              text: "Audio"
             },
             {
-              value: "size-18",
-              text: "Size 18"
+              value: "braille",
+              text: "Braille"
             },
             {
-              value: "size-24",
-              text: "Size 24"
+              value: "colouredPaper",
+              text: "Coloured paper"
+            },
+
+            {
+              value: "colouredPaperLargePrint",
+              text: "Coloured paper and large print"
             },
             {
-              value: "other",
-              text: "Other",
+              value: "largePrint",
+              text: "Large print"
+            },
+            {
+              value: "email",
+              text: "Email",
               conditional: {
                 html: emailHtml
               }
+            },
+
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "You can contact me by standard letter",
+              behaviour: "exclusive"
             }
           ]
         }) }}
 
-          {{ govukButton({
-                text: "Continue",
-                href: "phone-contact-preference"
-            }) }}
+        {{ govukButton({
+              text: "Continue"
+          }) }}
 
       </form>
+
     </div>
   </div>
 
