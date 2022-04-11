@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
- Mobile phone number - Apply for New Style Employment and Support Allowance - GOV.UK
+ Other contact number - Apply for New Style Employment and Support Allowance - GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -28,28 +28,24 @@
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
       {% from "govuk/components/input/macro.njk" import govukInput %}
       
-      {% set phoneHtml %}
+      {% set landlineHtml %}
       {{ govukInput({
-        id: "mobile-number",
-        name: "mobile-number",
+        id: "other-number",
+        name: "other-number",
         type: "tel",
         classes: "govuk-!-width-one-third",
         label: {
-          text: "Mobile number"
+          text: "Telephone number"
         }
       }) }}
       {% endset -%}
-
-
-      {# If claiming because of coronavirus, ask reason #}
-      {% if (data['coronavirus'] == "yes") %}
       
       {{ govukRadios({
         idPrefix: "how-contacted-conditional",
-        name: "mobile-phone",
+        name: "other-phone",
         fieldset: {
           legend: {
-            text: "Do you have a mobile number?",
+            text: "Is there another number you can be contacted on?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -62,46 +58,15 @@
             value: "yes~/apply/v18/alt-formats-4/email",
             text: "Yes",
             conditional: {
-              html: phoneHtml
+              html: landlineHtml
             }
           },
           {
-            value: "no~/apply/v18/alt-formats-4/landline",
+            value: "no~/apply/v18/alt-formats-4/email-personal-details",
             text: "No"
           }
         ]
       }) }}
-
-      {# If not claiming because of coronavirus, don't ask reason #}
-      {% else %}
-
-      {{ govukRadios({
-        idPrefix: "how-contacted-conditional",
-        name: "mobile-phone",
-        fieldset: {
-          legend: {
-            text: "Do you have a mobile number?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        
-        items: [
-          {
-            value: "yes~/apply/v18/alt-formats-4/email-personal-details",
-            text: "Yes",
-            conditional: {
-              html: phoneHtml
-            }
-          },
-          {
-            value: "no~/apply/v18/alt-formats-4/landline",
-            text: "No"
-          }
-        ]
-      }) }}
-
-      {% endif %}
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -112,6 +77,6 @@
 </form>
 </div><!-- govuk-grid-column-two-thirds -->
 </div><!-- govuk-grid-row -->
+
+
 {% endblock %}
-
-
