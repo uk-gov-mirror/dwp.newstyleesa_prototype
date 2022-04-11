@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const BASE_PATH = '/apply/v18/alt-formats-4';
+const BASE_PATH = 'apply/v18/alt-formats-4';
 const ABS_BASE_PATH = `/${BASE_PATH}`;
 const NEXT_PATH = '/apply/alt-formats-4';
 
@@ -23,11 +23,24 @@ var answer = req.session.data['contact-telephone-number-af'];
 
 router.post('/alternate-format', function (req, res) {
   const answer = req.body.AlternateFormat;
+  console.log ('alternateformatloaded')
 
   if (answer === 'alternateFormatYes') {
     res.redirect(`${ABS_BASE_PATH}/letters-contact-preference`);
   } else {
     res.redirect(`${ABS_BASE_PATH}/condition`);
+  }
+});
+
+
+router.post('/email-personal-details', function (req, res) {
+  const answer = req.body.Email;
+  console.log ('alternateformatloaded')
+
+  if (answer === 'Email') {
+    res.redirect(`${ABS_BASE_PATH}/alternate-format`);
+  } else {
+    res.redirect(`${ABS_BASE_PATH}/alternate-format`);
   }
 });
 

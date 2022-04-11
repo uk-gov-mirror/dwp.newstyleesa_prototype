@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+  <a href="../../index.html" rel="prev" class="govuk-back-link">Index page</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l">Current journey</h2>
+
+    <p><a href="https://miro.com/app/board/o9J_kn6qykk=/">Screen flow diagram (opens in Miro)</a></p>
+    <p><a href="apply/live/who-is-applying.html">Current (live) journey</a></p>
+
+    <h2 class="govuk-heading-l">Version 18</h2>
+
+    <p>Created: 29 September 2021 (work in progress)</p>
+
+    <p><a href="/apply/v18/eligibility-start" class="govuk-button">View version 18 prototype</a></p>
+
+    <p class="govuk-body">Changes:</p>
+    <form id="form" method="post" action="">
+    <ul class="govuk-list govuk-list--bullet">
+      <li>removed reference to work coach and job centre from done page - ticket 1442</li>
+      <li>removed referernce to red or amber list for quarantine</li>
+      <li>updated content about adding more info later for conditions and doctors - ticket 967 and 1446</li>
+      <li>added hint date to claim start - ticket 1463</li>
+      <li>changed links to mainstreams guides for JSA and UC in eligibility - ticket 1462</li>
+      <li>updated content about time out - ticket 1391</li>
+      <li>updated <a href="/apply/v18/accessibility-statement">accessibility statement</a> - ticket 1439</li>
+      <li>made business name for self employed optional - ticket 1460</li>
+      <li>alternative formats iteration #1 <a href="/apply/v18/alt-formats/short/accessible-format">short version</a> or <a href="/apply/v18/alt-formats/long/accessible-letters">long version</a>- ticket 875</li>
+      <li>alternative formats iteration #2 <a href="/apply/v18/alt-formats-2/nino">focus on large print and robust conversation</a></li>
+      <li>alternative formats iteration #3 <a href="/apply/v18/alt-formats-3/nino">focus on large print, most common and then another format</a></li>
+      <li>added content about temporary fit note change to done page</li>
+
+    </ul>
+    </form>
+
+   
+    <h2 class="govuk-heading-l">Altertive formats</h2>
+    
+<p>Prototypes for Alt-formats user testing.</p>
+    <p><a href="/apply/v18/alt-formats-4/start" class="govuk-button">Alt-formats</a></p>
+
+
+    
+  </div>
+{% endblock %}
