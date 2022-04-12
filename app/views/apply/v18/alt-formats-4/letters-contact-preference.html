@@ -15,7 +15,7 @@
       <span class="govuk-caption-xl">Accessibility</span>
       <h1 class="govuk-heading-l">What do you need instead of a standard letter?</h1>
       <p>We usually send letters on white paper and in Arial font size 12.</p>
-      <p>We can contact you in one of the ways listed below if this letter is not suitable. You can tell us more about your needs later, for example if you select large print you can then choose the font size.</p>
+      <p>Select the best option for your needs and you can tell us more later. For example, if you select large print you can then choose the font size.</p>
       <form class="form" action="letters-contact-preference" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -46,9 +46,7 @@
                 classes: "govuk-fieldset__legend--l"
               }
             },
-            hint: {
-               text: "Select the best option for your needs."
-             },
+            
           items: [
 
 
