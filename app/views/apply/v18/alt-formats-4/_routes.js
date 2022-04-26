@@ -100,5 +100,25 @@ router.post('/letters-contact-preference', function (req, res) {
   }
 
 });
+ /*
+router.post('/phone-contact-preference', function (req, res) 
+{ 
+  let data = req.session.data;
+  let answer;
+  if (data['phoneContactPreference']) {
+    answer = data['phoneContactPreference'];
+  } else {
+    answer = [];
+  };
+
+  answer = [].concat(answer);
+  console.log(answer, typeof answer);
+
+  if (answer.includes('emailPhone')) {
+    res.redirect(`${ABS_BASE_PATH}/email-phone`);
+  } else if (answer.includes('textphone')) {
+    res.redirect(`${ABS_BASE_PATH}/textphone`);
+  }
+}); */
 
 module.exports = router;
