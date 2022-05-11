@@ -94,54 +94,7 @@
 
 
 
-    {# If Covid #}
-    {% if (data['coronavirus'] == "yes" ) %}
-    <p class="govuk-body">We will contact you about your claim by <span class="new-date"></span>.</p>
-
-    <p>You can claim for up to 14 days for coronavirus isolation. For claims longer than 14 days we will contact you to
-      book a <a href="https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply"
-        class="govuk-link" rel="noreferrer noopener" target="_blank">‘Claimant Commitment’ (opens in new tab)</table>
-        </a> appointment. This is normally over the phone unless you have told us you need an alternative format.</p>
-
-    <h3 class="govuk-heading-m">Send us evidence that you’re self-isolating to support your application</h3>
-
-    <p>There are different instructions depending on the reason you're self-isolating.</p>
-
-    <p>Send us your evidence as soon as you can so we can process your claim.</p>
-
-    <h4 class="govuk-heading-s">If you’re self-isolating (but not for surgery)</h4>
-
-    <p>You can get an <a href="https://111.nhs.uk/isolation-note/">‘isolation note’ online from NHS 111 (opens in new
-        tab)</a> if any of the following apply:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>you’re self-isolating because you have symptoms of coronavirus</li>
-      <li>you’re self-isolating because you came into contact with someone who has symptoms of coronavirus</li>
-      <li>you were told to self-isolate by a test and trace service</li>
-      <li>you’re in quarantine because you’re returning from a trip abroad</li>
-    </ul>
-
-    <p>You do not have to go to your doctor or a hospital.</p>
-
-    <p>Your isolation note will have a 16-digit reference number. We will contact you about your claim and
-      take this reference number from you.</p>
-
-    <h4 class="govuk-heading-s">If you’re self-isolating because you have surgery</h4>
-
-    <p>If you’ve been advised by your doctor or healthcare professional to self-isolate before going into hospital for
-      surgery, your letter confirming the date of your procedure is proof. Send us a copy of your appointment letter.
-    </p>
-
-    <p>If you do not have a printed copy of your letter or cannot leave your home to post it, your local council might
-      be able to help. Go to GOV.UK to <a href="https://www.gov.uk/coronavirus-local-help">find coronavirus help in your
-        local area (opens in new tab)</a>.</p>
-
-    <div class="govuk-inset-text">
-      <h4 class="govuk-heading-s">Where to send your letter by post</h4>
-      <p>Freepost DWP ESA 26</p>
-    </div>
-    {% endif %}
-    {# End of COVID #}
-
+    
     {# Universal Credit block #}
    
     {% if (data['universal-credit'] == "No") %}
