@@ -364,6 +364,10 @@ router.use(
   require("./views/apply/v18/alt-formats-4/_routes")
 );
 
+router.use(
+  "/apply/v18/alt-formats-5/",
+  require("./views/apply/v18/alt-formats-5/_routes")
+);
 
 
 
