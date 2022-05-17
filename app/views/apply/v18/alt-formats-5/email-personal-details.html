@@ -30,59 +30,48 @@
     {% endif %}
         
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-        {% from "govuk/components/input/macro.njk" import govukInput %}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Do you have an email address?
+          </h1>
+        </legend>
+       
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value='yes~/apply/v18/alt-formats-5/alternate-format'  data-aria-controls="conditional-contact">
+            <label class="govuk-label govuk-radios__label" for="contact">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-by-email">
+                Email address
+              </label>
+              <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false" autocomplete="email">
+            </div>
+    
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value='yes~/apply/v18/alt-formats-5/alternate-format' data-aria-controls="conditional-contact-2">
+            <label class="govuk-label govuk-radios__label" for="contact-2">
+              No
+            </label>
+          </div>
         
-        {% set emailHtml %}
-        {{ govukInput({
-            label: {
-              text: "Email address"
-            },
-            id: "emailaddress",
-            name: "emailaddress",
-            type: "email",
-            autocomplete: "email",
-            spellcheck: false
-          }) }}
-        {% endset -%}
-        
-        {{ govukRadios({
-          idPrefix: "contact",
-          name: "contact",
-          fieldset: {
-            legend: {
-              text: "Do you have an email address?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "We’ll use this to send details of appointments."
-          },
-          items: [
-            {
-              value: "Email",
-              text: "Yes",
-              conditional: {
-                html: emailHtml
-              }
-            },
-            {
-              value: "noEmail",
-              text: "No",
-              conditional: {
-                html: phoneHtml
-              }
-            }
-          ]
-        }) }}
-
-      {% from "govuk/components/button/macro.njk" import govukButton %}
+         
+        </div>
+    
+      </fieldset>
+    </div>
+      
 
       {{ govukButton({
         text: "Continue"
       }) }}
-
+     
 </form>
 </div><!-- govuk-grid-column-two-thirds -->
 </div><!-- govuk-grid-row -->
