@@ -100,7 +100,7 @@ router.post('/letters-contact-preference', function (req, res) {
   }
 
 });
- /*
+/*/
 router.post('/phone-contact-preference', function (req, res) 
 { 
   let data = req.session.data;
@@ -120,5 +120,4 @@ router.post('/phone-contact-preference', function (req, res)
     res.redirect(`${ABS_BASE_PATH}/textphone`);
   }
 }); */
-
 module.exports = router;
